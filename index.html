@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://gramener.com/comicgen/dist/comicgen.min.css">
+<script async src="https://gramener.com/comicgen/dist/comicgen.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #474e5d;
+  font-family: Helvetica, sans-serif;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+.comic-container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {  
+  left: 50%;
+}
+
+.comic-left{
+  top: -225px;
+  left: 0;
+}
+
+.comic-right{
+  top: -225px;
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+.comic-left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+.comic-right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+.comic-right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* The actual comic content */
+.comic-content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>1974 - Carrie</h2>
+      <p>Carrie is a horror novel by American author Stephen King. It was his first published novel, released on April 5, 1974, with a first print-run of 30,000 copies. Set primarily in the then-future year of 1979, it revolves around the eponymous Carrie White, a friendless, bullied high-school.</p>
+    </div>
+  </div>
+  <div class="comic-container comic-right">
+    <div class="comic-content">
+      <img src="https://gramener.com/comicgen/v1/comic?name=priya&angle=sitting&emotion=blush&pose=sittingatdesk&box=&boxcolor=%23000000&boxgap=&mirror=" alt="Girl in a jacket" width="200" height="200">
+      <img src="https://gramener.com/comicgen/v1/comic?name=speechbubble&text=It%27s%20a%20great%20morning%21&width=200&height=150&align=center&font-family=Architects+Daughter&font-size=26&font-weight=normal&pointerx=-27&pointery=35&padding=5&fill=%23ffffff&line-height=1&x=5&y=0&scale=0.8&rough=1.8&mirror=&ext=png" alt="Girl in a jacket" width="200" height="200">
+      <!-- <comic-gen name="ethan" angle="side" emotion="wink" pose="normal" ext="svg" height="20px"></comic-gen> -->
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1975 - Salem's Lot</h2>
+      <p>'Salem's Lot is a 1975 horror novel by American author Stephen King. It was his second published novel. The story involves a writer named Ben Mears who returns to the town of Jerusalem's Lot in Maine, where he lived from the age of five through nine,</p>
+    </div>
+  </div>
+  <div class="comic-container comic-left">
+    <div class="comic-content">
+      <img src="https://gramener.com/comicgen/v1/comic?name=dee&angle=sitting&emotion=afraid&pose=sittingatdesk&box=&boxcolor=%23000000&boxgap=&mirror=" alt="Girl in a jacket" width="200" height="200">
+      <img src="https://gramener.com/comicgen/v1/comic?name=speechbubble&text=It%27s%20a%20great%20morning%21&width=200&height=150&align=center&font-family=Architects+Daughter&font-size=26&font-weight=normal&pointerx=-27&pointery=35&padding=5&fill=%23ffffff&line-height=1&x=5&y=0&scale=0.8&rough=1.8&mirror=&ext=png" alt="Girl in a jacket" width="200" height="200">
+      <!-- <comic-gen name="ethan" angle="side" emotion="wink" pose="normal" ext="svg" height="20px"></comic-gen> -->
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1977 - The Shining</h2>
+      <p>The Shining is a 1977 horror novel by American author Stephen King. It is King's third published novel and first hardback bestseller; its success firmly established King as a preeminent author in the horror genre.</p>
+    </div>
+  </div>
+  <div class="comic-container comic-right">
+    <div class="comic-panel comic-content">
+      <div class="comic-caption-top">And this is Dey, my co-star on this strip.</div>
+      <svg width="300" height="200">
+        <g class="comicgen" name="dee" angle="straight" emotion="smilehappy" pose="pointingright" x="160" y="0" scale="0.88" width="300" height="200" mirror="1"></g>
+        <g class="comicgen" name="dey" angle="straight" emotion="smile" pose="handsinpocket" x="-120" y="10" scale="0.88" width="300" height="200"></g>
+      </svg>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1977 - Rage</h2>
+      <p>Rage is a psychological thriller novel by American writer Stephen King, the first he published under the pseudonym Richard Bachman. It was first published in 1977 and then, it was collected in 1985 in the hardcover omnibus The Bachman Books.</p>
+    </div>
+  </div>
+  <div class="comic-container comic-left">
+    <div class="comic-panel comic-content">
+      <div class="comic-caption-top">And this is Dey, my co-star on this strip.</div>
+      <svg width="300" height="200">
+        <g class="comicgen" name="dee" angle="straight" emotion="smilehappy" pose="pointingright" x="160" y="0" scale="0.88" width="300" height="200" mirror="1"></g>
+        <g class="comicgen" name="dey" angle="straight" emotion="smile" pose="handsinpocket" x="-120" y="10" scale="0.88" width="300" height="200"></g>
+      </svg>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1979 - The Long Walk</h2>
+      <p>The Long Walk is a dystopian horror novel by American writer Stephen King, published in 1979, under the pseudonym Richard Bachman. It was collected in 1985 in the hardcover omnibus The Bachman Books, and has seen several reprints since, as both paperback and hardback.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1979 - The Dead Zone</h2>
+      <p>The Dead Zone is a science fiction thriller novel by Stephen King published in 1979. The story follows Johnny Smith, who awakens from a coma of nearly five years and, apparently as a result of brain damage, now experiences clairvoyant and precognitive visions triggered</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1980 - Firestarter</h2>
+      <p>Firestarter is a science fiction-horror thriller novel by Stephen King, first published in September 1980. In July and August 1980, two excerpts from the novel were published in Omni. In 1981, Firestarter was nominated as Best Novel for the British Fantasy Award, Locus Poll Award,</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1981 - Roadwork</h2>
+      <p>Roadwork is a thriller novel by American writer Stephen King, published in 1981 under the pseudonym Richard Bachman as a paperback original. It was collected in 1985 in the hardcover omnibus The Bachman Books.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1981 - Cujo</h2>
+      <p>Cujo is a 1981 psychological horror novel by American writer Stephen King about a rabid Saint Bernard. The novel won the British Fantasy Award in 1982 and was made into a film in 1983.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1982 - The Running Man</h2>
+      <p>The Running Man is a dystopian thriller novel by American writer Stephen King, first published under the pseudonym Richard Bachman in 1982 as a paperback original. It was collected in 1985 in the omnibus The Bachman Books.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1982 - The Dark Tower: The Gunslinger</h2>
+      <p>The Gunslinger is a dark-fantasy novel by American author Stephen King. It is the first volume in the Dark Tower series.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1983 - Christine</h2>
+      <p>Christine is a horror novel by American writer Stephen King, published in 1983. It tells the story of a car apparently possessed by malevolent supernatural forces. A film adaptation, directed by John Carpenter, was released eight months later in December of the same year.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1982 - The Dark Tower: The Gunslinger</h2>
+      <p>The Gunslinger is a dark-fantasy novel by American author Stephen King. It is the first volume in the Dark Tower series.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1983 - Christine</h2>
+      <p>Christine is a horror novel by American writer Stephen King, published in 1983. It tells the story of a car apparently possessed by malevolent supernatural forces. A film adaptation, directed by John Carpenter, was released eight months later in December of the same year.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1983 - Pet Sematary</h2>
+      <p>Pet Sematary is a 1983 horror novel by American writer Stephen King. The novel was nominated for a World Fantasy Award for Best Novel in 1984, and adapted into two films: one in 1989 and another in 2019. In November 2013, PS Publishing released Pet Sematary in a limited 30th</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1983 - Cycle of the Werewolf</h2>
+      <p>Cycle of the Werewolf is a short horror novel by American writer Stephen King, featuring illustrations by comic-book artist Bernie Wrightson. Each chapter is a short story unto itself. It tells the story of a werewolf haunting a small town as the moon turns full once every month.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1984 - The Talisman</h2>
+      <p>The Talisman is a 1984 fantasy novel by American writers Stephen King and Peter Straub. The plot is not related to that of Walter Scott's 1825 novel of the same name, although there is one oblique reference to "a Sir Walter Scott novel." The Talisman was nominated for the Locus and</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1984 - The Eyes of the Dragon</h2>
+      <p>The Eyes of the Dragon is a fantasy novel by American writer Stephen King, first published as a limited edition slipcased hardcover by Philtrum Press in 1984, illustrated by Kenneth R. Linkhauser. The novel would later be published for the mass market by Viking in 1987,</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1984 - Thinner</h2>
+      <p>Thinner is a horror novel by American author Stephen King, published in 1984 by NAL under King's pseudonym Richard Bachman. The story centers on lawyer Billy Halleck, who kills a crossing Romani woman in a road accident and escapes legal punishment because of his connections. However, the</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1986 - IT</h2>
+      <p>It is a 1986 horror novel by American author Stephen King. It was his 22nd book and his 17th novel written under his own name. The story follows the experiences of seven children as they are terrorized by an evil entity that exploits the fears of its victims to disguise itself while hunting </p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1987 - The Dark Tower II: The Drawing of the Three</h2>
+      <p>The Drawing of the Three is a dark fantasy novel by American writer Stephen King. It is the second book in The Dark Tower series, published by Grant in 1987. The series was inspired by Childe Roland to the Dark Tower Came by Robert Browning.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1987 - Misery</h2>
+      <p>Misery is an American psychological horror thriller novel written by Stephen King and first published by Viking Press on June 8, 1987. The novel's narrative is based on the relationship of its two main characters – the romance novelist Paul Sheldon and his</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1987 - The Tommyknockers</h2>
+      <p>The Tommyknockers is a 1987 science fiction novel by Stephen King. While maintaining a horror style, the novel is an excursion into the realm of science fiction for King, as the residents of the Maine town of Haven gradually fall under the influence of a mysterious object buried in the woods.</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1989 - The Dark Half</h2>
+      <p>The Dark Half is a horror novel by American writer Stephen King, published in 1989. Publishers Weekly listed The Dark Half as the second best-selling book of 1989 behind Tom Clancy's Clear and Present Danger. The novel was adapted into a feature film of the same name in 1993.</p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1990 - The Stand</h2>
+      <p>The Stand is a post-apocalyptic dark fantasy novel written by American author Stephen King and first published in 1978 by Doubleday. The plot centers on a deadly pandemic of weaponized influenza and its aftermath, in which the few surviving humans gather into factions that are each led by a personification o</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>1991 - The Dark Tower III: The Waste Lands</h2>
+      <p>The Waste Lands is a dark fantasy novel by American writer Stephen King. It is the third book of The Dark Tower series. The original limited edition hardcover featuring full-color illustrations by Ned Dameron was published in 1991 by Grant. The book was reissued in 2003 to coincide </p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>1991 - Needful Things</h2>
+      <p>Needful Things is a 1991 horror novel by American author Stephen King. It is the first novel King wrote after his rehabilitation from drug and alcohol addiction. It was made into a film of the same name in 1993 which was directed by Fraser C. Heston. The story focuses on a shop that sells</p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>9999 - </h2>
+      <p></p>
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>9999 - </h2>
+      <p></p>
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>9999 - </h2>
+      <p></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
