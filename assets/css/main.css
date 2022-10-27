@@ -187,6 +187,7 @@
     left: 15px;
     }
     .comic-left::after, .comic-right::after {
+    top: -225px;
     left: 15px;
     }
     /* Make all right containers behave like the left ones */
