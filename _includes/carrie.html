@@ -5,9 +5,59 @@
     </div>
   </div>
   <div class="comic-container comic-right">
-    <div class="comic-content">
-      <img src="https://gramener.com/comicgen/v1/comic?name=priya&angle=sitting&emotion=blush&pose=sittingatdesk&box=&boxcolor=%23000000&boxgap=&mirror=" alt="Girl in a jacket" width="200" height="200">
-      <img src="https://gramener.com/comicgen/v1/comic?name=speechbubble&text=It%27s%20a%20great%20morning%21&width=200&height=150&align=center&font-family=Architects+Daughter&font-size=26&font-weight=normal&pointerx=-27&pointery=35&padding=5&fill=%23ffffff&line-height=1&x=5&y=0&scale=0.8&rough=1.8&mirror=&ext=png" alt="Girl in a jacket" width="200" height="200">
-      <!-- <comic-gen name="ethan" angle="side" emotion="wink" pose="normal" ext="svg" height="20px"></comic-gen> -->
+    <div class="comic-panel comic-content">
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <div class="comic-panel comic-content">
+            <div class="comic-caption-top">And this is Dey, my co-star on this strip.</div>
+            <svg width="300" height="200" viewBox="0 0 500 600">
+              <g class="comicgen" name="dee" angle="straight" emotion="smilehappy" pose="pointingright" x="-120"></g>
+              <g class="comicgen" name="dey" angle="straight" emotion="smile" pose="handsinpocket" x="150"></g>
+            </svg>
+          </div>
+          <div class="text">Scene - 1</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <div class="comic-panel comic-content">
+            <div class="comic-caption-top">And this is Dey, my co-star on this strip.</div>
+            <svg width="300" height="200" viewBox="0 0 500 600">
+              <g class="comicgen" name="aryan" emotion="loudcry" pose="handsfolded" x="-120"></g>
+              <g class="comicgen" name="bean" angle="straight" emotion="blush" pose="superperfect" x="150"></g>
+            </svg>
+          </div>
+          <div class="text">Scene - 2</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <div class="comic-panel comic-content">
+            <div class="comic-caption-top" id="lwsc3">And this is Dey, my co-star on this strip.</div>
+            <svg width="300" height="200" viewBox="0 0 500 600">
+              <g class="comicgen" name="biden" emotion="laugh" pose="holdinglaptop" x="-120"></g>
+              <g class="comicgen" name="ethan" angle="straight" emotion="neutral" pose="holdingbook" x="150"></g>
+            </svg>
+          </div>
+          <div class="text">Scene - 3</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        <button id="btnWhatsUp" class="btn"><i class="far fa-face-smile"></i></button>
+        <input type="text" name="emotion" placeholder="chat with biden!" maxlength="25" id="txtemotion"/>
+        <comic-text></comic-text>
     </div>
   </div>
