@@ -10,7 +10,7 @@
     padding:1vmin;
   }
   
-  .comic-book-panel {
+  .panel-comic-book {
     background-color:#fff;
     border:solid 2px #000;
     box-shadow:0 6px 6px -6px #000;
@@ -79,48 +79,48 @@
     width:0;
   }
   
-  .comic-book-panel:nth-child(1) {
+  .panel-comic-book:nth-child(1) {
     flex-basis: 400px;
   }
-  .comic-book-panel:nth-child(2) {
+  .panel-comic-book:nth-child(2) {
     flex-basis: 200px;
   }
-  .comic-book-panel:nth-child(3) {
+  .panel-comic-book:nth-child(3) {
     flex-basis: 200px;
   }
-  .comic-book-panel:nth-child(4) {
+  .panel-comic-book:nth-child(4) {
     flex-basis: 200px;
   }
-  .comic-book-panel:nth-child(5) {
+  .panel-comic-book:nth-child(5) {
     flex-basis: 200px;
   }
-  .comic-book-panel:nth-child(6) {
+  .panel-comic-book:nth-child(6) {
     flex-basis: 200px;
   }
-  .comic-book-panel:nth-child(7) {
+  .panel-comic-book:nth-child(7) {
     flex-basis: 400px;
   }
-  .comic-book-panel:nth-child(8) {
+  .panel-comic-book:nth-child(8) {
     flex-basis: 200px;
   }
-  .comic-book-panel:nth-child(9) {
+  .panel-comic-book:nth-child(9) {
     flex-basis: 200px;
   }
   
   /* background colours */
   
-  .comic-book-panel:nth-child(4n+1) {
+  .panel-comic-book:nth-child(4n+1) {
     background-image:radial-gradient(circle, yellow, orange);
   }
   
-  .comic-book-panel:nth-child(4n+2) {
+  .panel-comic-book:nth-child(4n+2) {
     background-image:radial-gradient(circle, lightblue, deepskyblue);
   }
   
-  .comic-book-panel:nth-child(4n+3) {
+  .panel-comic-book:nth-child(4n+3) {
     background-image:radial-gradient(circle, palegreen, yellowgreen);
   }
   
-  .comic-book-panel:nth-child(4n+4) {
+  .panel-comic-book:nth-child(4n+4) {
     background-image:radial-gradient(circle, lightcoral, tomato);
   }
