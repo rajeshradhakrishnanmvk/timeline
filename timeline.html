@@ -1,9 +1,8 @@
----
----
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="./feed.xml">
+
 <link rel="icon" href="book-reader-solid.svg" type="image/svg" sizes="16x16">
 <link rel="stylesheet" href="https://gramener.com/comicgen/dist/comicgen.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -185,32 +184,49 @@ body {
   border-color: transparent white transparent transparent;
   }
 
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+
+  /* comic  containers */
+  .comic-container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
   .comic-container::before {
   left: 60px;
   border: medium solid white;
   border-width: 10px 10px 10px 0;
   border-color: transparent white transparent transparent;
   }
-  
-  /* Make sure all circles are at the same spot */
-  .left::after, .right::after {
-  left: 15px;
+  .comic-left{
+    top:15px;
   }
+  /* Make sure all circles are at the same spot */
   .comic-left::after, .comic-right::after {
   left: 15px;
   }
+
   /* Make all right containers behave like the left ones */
-  .right {
-  left: 0%;
-  }
   .comic-right {
+  top:15px;
   left: 0%;
   }
 }
 
 /* Slideshow */
 * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
+/* body {font-family: Verdana, sans-serif; margin:0} */
+
 .mySlides {display: none}
 img {vertical-align: middle;}
 
@@ -265,13 +281,13 @@ img {vertical-align: middle;}
 }
 
 /* Number text (1/3 etc) */
-.numbertext {
-  color: #0f0f0f;
+/* .numbertext {
+  color: #1a33c4b2;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
   top: 0;
-}
+} */
 
 /* The dots/bullets/indicators */
 .dot {
@@ -325,13 +341,175 @@ img {vertical-align: middle;}
   background-color: RoyalBlue;
 }
 
+/* The Modal (background) */
+.comic-king-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.comic-king-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* comic layout start*/
+
+.comic-book {
+  display:flex;
+  flex-wrap:wrap;
+  font-family:'Comic Sans', cursive;
+  padding:1vmin;
+}
+
+.panel-comic-book {
+  background-color:#fff;
+  border:solid 2px #000;
+  box-shadow:0 6px 6px -6px #000;
+  display:inline-block;
+  flex:1 1;
+  height:200px;
+  margin:1vmin;
+  overflow:hidden;
+  position:relative;
+}
+
+.comic-book-text {
+  background-color:#fff;
+  border:solid 2px #000;
+  margin:0;
+  padding:3px 10px;
+}
+
+.top-left {
+  left:-6px;
+  position:absolute;
+  top:-2px;
+  transform:skew(-15deg);
+}
+
+.bottom-right {
+  bottom:-2px;
+  position:absolute;
+  right:-6px;
+  transform:skew(-15deg);
+}
+
+.speech {
+  background-color:#fff;
+  border:solid 2px #000;
+  border-radius:12px;
+  display:inline-block;
+  margin:.5em;
+  padding:.5em 1em;
+  position:relative;
+}
+
+.speech:before {
+  border:solid 12px transparent;
+  border-left:solid 12px #000;
+  border-top:solid 12px #000;
+  bottom:-24px;
+  content:"";
+  height:0;
+  left:24px;
+  position:absolute;
+  transform:skew(-15deg);
+  width:0;
+}
+
+.speech:after {
+  border:solid 10px transparent;
+  border-left:solid 10px #fff;
+  border-top:solid 10px #fff;
+  bottom:-19px;
+  content:"";
+  height:0;
+  left:27px;
+  position:absolute;
+  transform:skew(-15deg);
+  width:0;
+}
+
+.panel-comic-book:nth-child(1) {
+  flex-basis: 400px;
+}
+.panel-comic-book:nth-child(2) {
+  flex-basis: 200px;
+}
+.panel-comic-book:nth-child(3) {
+  flex-basis: 200px;
+}
+.panel-comic-book:nth-child(4) {
+  flex-basis: 200px;
+}
+.panel-comic-book:nth-child(5) {
+  flex-basis: 200px;
+}
+.panel-comic-book:nth-child(6) {
+  flex-basis: 200px;
+}
+.panel-comic-book:nth-child(7) {
+  flex-basis: 400px;
+}
+.panel-comic-book:nth-child(8) {
+  flex-basis: 200px;
+}
+.panel-comic-book:nth-child(9) {
+  flex-basis: 200px;
+}
+
+/* background colours */
+
+.panel-comic-book:nth-child(4n+1) {
+  background-image:radial-gradient(circle, yellow, orange);
+}
+
+.panel-comic-book:nth-child(4n+2) {
+  background-image:radial-gradient(circle, lightblue, deepskyblue);
+}
+
+.panel-comic-book:nth-child(4n+3) {
+  background-image:radial-gradient(circle, palegreen, yellowgreen);
+}
+
+.panel-comic-book:nth-child(4n+4) {
+  background-image:radial-gradient(circle, lightcoral, tomato);
+}
+/* comic layout end */
 </style>
 </head>
 <body>
 <!-- <h1>This site has been visited <span id="visits"></span> times.</h1> -->
 <div>
   <img id="visitorbadge">
-  <a href="./feed.xml" target="_blank">
+  <a href="timeline/feed.xml" target="_blank">
     <img src="https://img.shields.io/badge/rss-feed-orange">
     <i class="fa-solid fa-rss"></i>
   </a>
@@ -345,10 +523,62 @@ img {vertical-align: middle;}
     </div>
   </div>
   <div class="comic-container comic-right">
-    <div class="comic-content">
-      <img src="https://gramener.com/comicgen/v1/comic?name=priya&angle=sitting&emotion=blush&pose=sittingatdesk&box=&boxcolor=%23000000&boxgap=&mirror=" alt="Girl in a jacket" width="200" height="200">
-      <img src="https://gramener.com/comicgen/v1/comic?name=speechbubble&text=It%27s%20a%20great%20morning%21&width=200&height=150&align=center&font-family=Architects+Daughter&font-size=26&font-weight=normal&pointerx=-27&pointery=35&padding=5&fill=%23ffffff&line-height=1&x=5&y=0&scale=0.8&rough=1.8&mirror=&ext=png" alt="Girl in a jacket" width="200" height="200">
-      <!-- <comic-gen name="ethan" angle="side" emotion="wink" pose="normal" ext="svg" height="20px"></comic-gen> -->
+    <div class="comic-panel comic-content">
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+       
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <div class="comic-panel comic-content">
+            <div class="comic-caption-top">I want to become an author!</div>
+            <svg width="300" height="200" viewBox="0 0 500 600">
+              <g class="comicgen" name="deynuovo" angle="side" emotion="excited" pose="handsfolded" x="-120"></g>
+              <g class="comicgen" name="priya" angle="straight" emotion="neutral" pose="holdingcoffee" x="150"></g>
+            </svg>
+          </div>
+          <div class="text">Scene - 1</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <div class="comic-panel comic-content">
+            <div class="comic-caption-top">of course why not? I like horror genre...</div>
+            <svg width="300" height="200" viewBox="0 0 500 600">
+              <g class="comicgen" name="priya" angle="straight" emotion="curious" pose="holdingcoffee" x="-140"></g>
+              <g class="comicgen" name="deynuovo" angle="side" emotion="hmm" pose="pointingright" x="60"></g>
+            </svg>
+          </div>
+          <div class="text">Scene - 2</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <div class="comic-panel comic-content">
+            <div class="comic-caption-top" id="lwsc3">Start with Stephen king's book "Carrie"</div>
+            <svg width="300" height="200" viewBox="0 0 500 600">
+              <g class="comicgen" name="priya" angle="straight" emotion="neutral" pose="holdingcoffee" x="-120"></g>
+              <g class="comicgen" name="deynuovo" angle="side" emotion="excited" pose="thumbsup" x="150"></g>
+            </svg>
+          </div>
+          <div class="text">Scene - 3</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        <button id="btnComicBook" title="Comic Book" class="btn"><i class="fa-regular fa-eye"></i></button>
+        <button id="btnNFT" title="Deploy NFT" class="btn "><i class="fa-brands fa-hive"></i></button>
+        <button id="btnWhatsUp" title="Analyze" class="btn"><i class="far fa-face-smile"></i></button>
+        <input type="text" name="emotion" placeholder="chat with biden!" maxlength="25" id="txtemotion"/>
+        <comic-text></comic-text>
     </div>
   </div>
   <div class="container right">
@@ -359,9 +589,13 @@ img {vertical-align: middle;}
   </div>
   <div class="comic-container comic-left">
     <div class="comic-content">
-      <img src="https://gramener.com/comicgen/v1/comic?name=dee&angle=sitting&emotion=afraid&pose=sittingatdesk&box=&boxcolor=%23000000&boxgap=&mirror=" alt="Girl in a jacket" width="200" height="200">
-      <img src="https://gramener.com/comicgen/v1/comic?name=speechbubble&text=It%27s%20a%20great%20morning%21&width=200&height=150&align=center&font-family=Architects+Daughter&font-size=26&font-weight=normal&pointerx=-27&pointery=35&padding=5&fill=%23ffffff&line-height=1&x=5&y=0&scale=0.8&rough=1.8&mirror=&ext=png" alt="Girl in a jacket" width="200" height="200">
-      <!-- <comic-gen name="ethan" angle="side" emotion="wink" pose="normal" ext="svg" height="20px"></comic-gen> -->
+      <div class="comic-panel comic-content">
+        <div class="comic-caption-top" id="lwsc3">And this is Dey, my co-star on this strip.</div>
+        <svg width="300" height="200" viewBox="0 0 500 600">
+          <g class="comicgen" name="biden" emotion="laugh" pose="holdinglaptop" x="-120"></g>
+          <g class="comicgen" name="ethan" angle="straight" emotion="neutral" pose="holdingbook" x="150"></g>
+        </svg>
+      </div>
     </div>
   </div>
   <div class="container left">
@@ -370,31 +604,19 @@ img {vertical-align: middle;}
       <p>The Shining is a 1977 horror novel by American author Stephen King. It is King's third published novel and first hardback bestseller; its success firmly established King as a preeminent author in the horror genre.</p>
     </div>
   </div>
-  <div class="comic-container comic-right">
-    <div class="comic-panel comic-content">
-      <div class="comic-caption-top">And this is Dey, my co-star on this strip.</div>
-      <svg width="300" height="200">
-        <g class="comicgen" name="dee" angle="straight" emotion="smilehappy" pose="pointingright" x="160" y="0" scale="0.88" width="300" height="200" mirror="1"></g>
-        <g class="comicgen" name="dey" angle="straight" emotion="smile" pose="handsinpocket" x="-120" y="10" scale="0.88" width="300" height="200"></g>
-      </svg>
-    </div>
-  </div>
   <div class="container right">
     <div class="content">
       <h2>1977 - Rage</h2>
       <p>Rage is a psychological thriller novel by American writer Stephen King, the first he published under the pseudonym Richard Bachman. It was first published in 1977 and then, it was collected in 1985 in the hardcover omnibus The Bachman Books.</p>
     </div>
   </div>
-  <div class="comic-container comic-left">
-    <div class="comic-panel comic-content">
-      <div class="comic-caption-top">And this is Dey, my co-star on this strip.</div>
-      <svg width="300" height="200">
-        <g class="comicgen" name="dee" angle="straight" emotion="smilehappy" pose="pointingright" x="160" y="0" scale="0.88" width="300" height="200" mirror="1"></g>
-        <g class="comicgen" name="dey" angle="straight" emotion="smile" pose="handsinpocket" x="-120" y="10" scale="0.88" width="300" height="200"></g>
-      </svg>
+  <div id="thelongwalk" class="container left">
+    <div class="content">
+      <h2>1979 - The Long Walk</h2>
+      <p>The Long Walk is a dystopian horror novel by American writer Stephen King, published in 1979, under the pseudonym Richard Bachman. It was collected in 1985 in the hardcover omnibus The Bachman Books, and has seen several reprints since, as both paperback and hardback.</p>
     </div>
   </div>
-  {% include thelongwalk.html %}
+
   <div class="container right">
     <div class="content">
       <h2>1979 - The Dead Zone</h2>
@@ -762,6 +984,43 @@ img {vertical-align: middle;}
     </div>
   </div>
 </div>
+
+<!-- The Modal -->
+<div id="comicModal" class="comic-king-modal">
+
+  <!-- Modal content -->
+  <div class="comic-king-modal-content">
+    <span class="close">&times;</span>
+    <article class="comic-book">
+      <div class="panel-comic-book">
+        <p class="comic-book-text bottom-right">Somewhere...</p>
+        <p class="speech">I want to become an author</p>
+        <svg width="300" height="200" viewBox="0 0 500 600">
+          <g class="comicgen" name="deynuovo" angle="side" emotion="excited" pose="handsfolded" x="-120"></g>
+          <g class="comicgen" name="priya" angle="straight" emotion="neutral" pose="holdingcoffee" x="150"></g>
+        </svg>
+      </div>
+      <div class="panel-comic-book">
+        <p class="speech">of course why not? I like horror genre...</p>
+        <svg width="300" height="200" viewBox="0 0 500 600">
+          <g class="comicgen" name="priya" angle="straight" emotion="curious" pose="holdingcoffee" x="-140"></g>
+          <g class="comicgen" name="deynuovo" angle="side" emotion="hmm" pose="pointingright" x="60"></g>
+        </svg>
+      </div>
+      <div class="panel-comic-book">
+        <p class="speech">Start with Stephen king's book "Carrie"</p>
+        <svg width="300" height="200" viewBox="0 0 500 600">
+          <g class="comicgen" name="priya" angle="straight" emotion="neutral" pose="holdingcoffee" x="-120"></g>
+          <g class="comicgen" name="deynuovo" angle="side" emotion="excited" pose="thumbsup" x="150"></g>
+          
+        </svg>
+        <p class="comic-book-text bottom-right">TO BE CONTINUED</p>
+      </div>
+    </article>
+  </div>
+
+</div>
+
 <script type="text/javascript">
 
   let slideIndex = 1;
@@ -881,10 +1140,36 @@ async function fetchSentiments(messages) {
 
 }
 //Prediction using HF model - END
-  
+//Modal Popup START
+// Get the modal
+var modal = document.getElementById("comicModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("btnComicBook");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+//Modal Popup END
   </script>
   <script async src="https://gramener.com/comicgen/dist/comicgen.min.js"></script>
-  <script async src="https://api.countapi.xyz/hit/kingstimeline.io/78f4f743-ddb7-45f5-ac9f-91eea04dd225?callback=websiteVisits"></script>
+  <!-- <script async src="https://api.countapi.xyz/hit/kingstimeline.io/78f4f743-ddb7-45f5-ac9f-91eea04dd225?callback=websiteVisits"></script> -->
 
 </body>
 </html>
