@@ -2,7 +2,7 @@
 .comic-king-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 100; /* Sit above the timeline markers */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -20,8 +20,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    box-sizing: border-box;
     max-width: 100%;
+    box-sizing: border-box;
   }
 
   [data-comic-book] {
@@ -35,22 +35,31 @@
 
   @media screen and (max-width: 620px) {
     .comic-king-modal {
-      padding-top: 12px;
+      padding-top: 24px;
     }
 
     .comic-king-modal-content {
       width: calc(100% - 16px);
-      padding: 28px 10px 12px;
+      padding: 12px;
       overflow-x: hidden;
     }
   }
   
+  .comic-king-modal.is-open {
+    display: block;
+  }
+
   /* The Close Button */
-  .close {
+  button.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 0 4px;
+    cursor: pointer;
   }
   
   .close:hover,

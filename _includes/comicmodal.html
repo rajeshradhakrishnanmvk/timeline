@@ -1,11 +1,8 @@
-<!-- The Modal -->
-<div id="comicModal" class="comic-king-modal" role="dialog" aria-modal="true" aria-label="Comic">
-
-    <!-- Modal content -->
-    <div class="comic-king-modal-content">
-      <span class="close" role="button" tabindex="0" aria-label="Close comic">&times;</span>
-      <div data-comic-book="carrie">{% include comicbook.html %}</div>
-      <div data-comic-book="never-flinch" hidden>{% include comicbook-never-flinch.html %}</div>
-    </div>
-
+<div id="comicModal" class="comic-king-modal" role="dialog" aria-modal="true" aria-labelledby="comic-dialog-title" aria-hidden="true">
+  <div class="comic-king-modal-content">
+    <button type="button" class="close" id="comicModalClose" aria-label="Close comic">&times;</button>
+    <h2 id="comic-dialog-title" class="visually-hidden">Comic book</h2>
+    <div data-comic-book="carrie">{% include comicbook.html %}</div>
+    <div data-comic-book="never-flinch" hidden>{% include comicbook-never-flinch.html %}</div>
   </div>
+</div>

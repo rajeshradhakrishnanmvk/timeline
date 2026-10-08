@@ -1,161 +1,144 @@
-let slideIndex = 1;
-  showSlides(slideIndex);
-  
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-  
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-  
+(function () {
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  var slideIndex = 1;
+
   function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}    
-    if (n < 1) {slideIndex = slides.length}
+    var i;
+    if (!slides.length) {
+      return;
+    }
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
     for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+      slides[i].style.display = "none";
     }
     for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+      dots[i].classList.remove("active");
+      dots[i].removeAttribute("aria-current");
     }
-    slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
+    slides[slideIndex - 1].style.display = "block";
+    if (dots[slideIndex - 1]) {
+      dots[slideIndex - 1].classList.add("active");
+      dots[slideIndex - 1].setAttribute("aria-current", "true");
+    }
   }
 
-  function websiteVisits(response) {
-    badgevalue ="https://img.shields.io/badge/visitors-" + response.value +"-yellow"
-    document.getElementById('visitorbadge').src = badgevalue;
-  }
-//Prediction using HF model - START
-const sentimentsURL = 'https://huggingface-raj.herokuapp.com/api/get-classify'
-
-class SentimentPrediction extends HTMLElement {
-
-    constructor() {
-        super();
-        this.root = this.attachShadow({ mode: 'open' });
-    }
-    set emotions(prediction) {
-        //console.log(prediction);
-        if (prediction.label == "POSITIVE") {
-            this.root.innerHTML = `
-            <p style="font-size:50px">&#128522;</p>
-            ${prediction.score} + ${prediction.label}
-            `;
-        }
-        if (prediction.label == "NEGATIVE") {
-            this.root.innerHTML = `
-            <p style="font-size:50px">&#128557;</p>
-            ${prediction.score} + ${prediction.label}
-            `;
-        }
-
-    }
-
-
-}
-
-customElements.define('sentiment-pred', SentimentPrediction)
-
-btnWhatsUp.addEventListener('click', e => {
-    var arrValues = new Array();
-    arrValues.push(document.getElementById("txtemotion").value);
-    //document.getElementById("lwsc3").innerHTML = txtemotion;
-    var messages = arrValues;
-    fetchSentiments(arrValues);
-})
-
-
-
-async function fetchSentiments(messages) {
-    var payload = {
-        "text": messages
-    }
-    //console.log(sentimentsURL)
-    const json = await fetch(sentimentsURL,
-        {
-            mode: 'cors', // 'cors' by default, 'no-cors'
-            method: 'POST',
-            body: JSON.stringify(payload), // string or object
-            headers: {
-                'Content-Type': 'application/json'
-            }
-
-        }).then(function (response) {
-            console.log("In Response status check", response.ok);
-            if (!response.ok) {
-                throw Error(response.statusText);
-            }
-            // Read the response as json.
-            return response.json();
-        })
-        .then(function (responseAsJson) {
-            //console.log("In Response json data get");
-            // Do stuff with the JSON
-            //console.log(responseAsJson);
-            //renderElements(responseAsJson);
-            return responseAsJson
-        })
-        .catch(function (error) {
-            console.log("In error");
-            console.log('Looks like there was a problem: \n', error);
-        });
-
-    const main = document.querySelector('comic-text')
-
-    json.classified.forEach(pred => {
-        console.log(pred);
-        const el = document.createElement('sentiment-pred');
-        el.emotions = pred;
-        main.appendChild(el);
+  var prev = document.querySelector(".slideshow-container .prev");
+  var next = document.querySelector(".slideshow-container .next");
+  if (prev) {
+    prev.addEventListener("click", function () {
+      showSlides(slideIndex += 1 * -1);
     });
+  }
+  if (next) {
+    next.addEventListener("click", function () {
+      showSlides(slideIndex += 1);
+    });
+  }
+  Array.prototype.forEach.call(dots, function (dot, index) {
+    dot.addEventListener("click", function () {
+      showSlides(slideIndex = index + 1);
+    });
+  });
+  showSlides(slideIndex);
 
-}
-//Prediction using HF model - END
-
-// Comic modal: any [data-open-comic] button opens the matching book.
-(function () {
   var modal = document.getElementById("comicModal");
-  if (!modal) return;
+  var openButtons = document.querySelectorAll("[data-open-comic]");
+  var closeButton = document.getElementById("comicModalClose");
+  var comicBooks = modal ? modal.querySelectorAll("[data-comic-book]") : [];
+  var lastFocus = null;
 
-  function openModal() {
-    modal.style.display = "block";
+  function focusableIn(container) {
+    return Array.prototype.filter.call(
+      container.querySelectorAll("a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex='-1'])"),
+      function (el) {
+        return el.offsetParent !== null || el === document.activeElement;
+      }
+    );
+  }
+
+  function setComicBook(comicId) {
+    if (!comicBooks.length) {
+      return;
+    }
+    Array.prototype.forEach.call(comicBooks, function (comicBook) {
+      comicBook.hidden = comicBook.getAttribute("data-comic-book") !== comicId;
+    });
+  }
+
+  function onModalKeydown(event) {
+    if (!modal || !modal.classList.contains("is-open")) {
+      return;
+    }
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+    if (event.key !== "Tab") {
+      return;
+    }
+    var focusable = focusableIn(modal);
+    if (!focusable.length) {
+      event.preventDefault();
+      return;
+    }
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  function openModal(trigger) {
+    if (!modal) {
+      return;
+    }
+    lastFocus = trigger || document.activeElement;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    if (closeButton) {
+      closeButton.focus();
+    }
   }
 
   function closeModal() {
-    modal.style.display = "none";
+    if (!modal) {
+      return;
+    }
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    }
   }
 
-  document.querySelectorAll("[data-open-comic]").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var id = btn.getAttribute("data-open-comic");
-      modal.querySelectorAll("[data-comic-book]").forEach(function (el) {
-        el.hidden = el.getAttribute("data-comic-book") !== id;
+  if (openButtons.length && modal) {
+    Array.prototype.forEach.call(openButtons, function (openButton) {
+      openButton.addEventListener("click", function () {
+        setComicBook(openButton.getAttribute("data-open-comic") || "carrie");
+        openModal(openButton);
       });
-      modal.setAttribute("aria-label", id === "never-flinch" ? "Never Flinch comic" : "Carrie comic");
-      openModal();
     });
-  });
-
-  var closeBtn = modal.querySelector(".close");
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeModal);
-    closeBtn.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
+  }
+  if (closeButton) {
+    closeButton.addEventListener("click", closeModal);
+  }
+  if (modal) {
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
         closeModal();
       }
     });
+    document.addEventListener("keydown", onModalKeydown);
   }
-
-  window.addEventListener("click", function (event) {
-    if (event.target === modal) closeModal();
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && modal.style.display === "block") closeModal();
-  });
 })();

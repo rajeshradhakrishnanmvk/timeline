@@ -1,84 +1,49 @@
-Stroyboard with scripted
+# Stephen King book timeline
 
-_______________________
+A chronological timeline of Stephen King's novels, with short original descriptions and a link out to a source page for each book. Three early cards still carry the original [Gramener Comicgen](https://gramener.com/comicgen/) strips.
 
- Group members: "Brad & Fairy"
- 
- Video Title: Story Begin Scene - 2
- 
- Date: 2022-11-03
+The site is published with classic GitHub Pages from the `main` branch (site root, no build Action). It is live at <https://rajeshradhakrishnanmvk.github.io/timeline/>.
 
-___________________
+## Add a book
 
-<table>
-<tr>
-<td><img src="https://gramener.com/comicgen/v1/comic?name=deynuovo&angle=sitting&emotion=dozing&pose=sittingatdesk&shirt=%23bdc59a&face=%23f9e6c8&box=1&boxcolor=%23000000&boxgap=&mirror=mirror" alt="deynuovo is dozed" style="height: 100px; width:100px;"/>
-<td><img src="https://gramener.com/comicgen/v1/comic?name=ava&emotion=lookingdown&pose=holdingbook&shirt=%23bdc59a&box=1&boxcolor=%23000000&boxgap=&mirror=mirror" alt="ava is lookingdown" style="height: 100px; width:100px;"/>
-<td><img src="https://gramener.com/comicgen/v1/comic?name=ava&emotion=lookingdown&pose=holdingbook&shirt=%23bdc59a&box=1&boxcolor=%23000000&boxgap=&mirror=mirror" alt="ava is lookingdown" style="height: 100px; width:100px;"/>
-</tr>
-</table>
+Edit [`_data/books.yml`](_data/books.yml). Each entry needs:
 
-<table>
-  <tr>
-    <th>#</th>
-    <th>Scene</th>
-    <th>Dialogue</th>
-    <th>Camera Angle</th>
-    <th>Location/Set</th>
-    <th>Props</th>  
-    <!-- <th>Short Type</th> -->
-  </tr>
-  <tr>
-  <td>4.
-  <td>Scene - 4
-  <td>Brad talks to himself: After reading Mr. King's book, it time to write something
-  <td>Wide
-  <td>At desk
-  <td>laptop in Brad's desk
- </tr>
-  <tr>
-    <td>5.
-    <td>Scene - 5
-    <td>Fairy Ava appears to help Brad!
-    <td>Wide
-    <td>In a dream
-    <td>Book in ava's hand
- </tr>
-<tr>
-    <td>6.
-    <td>Scene - 6
-    <td>Ava talks to Brad: Once upon a time, there was a cave!
-      <br>
-      "To be continued..."
-    <td>Wide
-    <td>cafeteria
-    <td>Book in ava's hand
- </tr>
- </table>
- 
-Comic Shot
-____________________
+| Field | Purpose |
+| --- | --- |
+| `id` | Unique fragment used as the card's `id` (letters, numbers, `_`) |
+| `year` | Year shown in the card heading |
+| `date` | First publication date, `YYYY-MM-DD`. The page sorts on this, so the entry can go anywhere in the file |
+| `title` | Book title. Quote it if it contains an apostrophe |
+| `source` | A Wikipedia or [stephenking.com](https://stephenking.com/works/) page for that book |
+| `description` | A short, spoiler-light summary in your own words |
+| `comic` | Optional. `carrie`, `salems-lot`, `shining`, or `never-flinch` attaches an existing comic panel |
 
-[Carrie](https://rajeshradhakrishnanmvk.github.io/timeline/#carrie)
+Left and right placement alternates down the list after the sort. Do not set a side by hand.
 
-[Never Flinch](https://rajeshradhakrishnanmvk.github.io/timeline/#neverflinch)
+Write the description yourself. Do not paste text from Wikipedia or the publisher.
 
+## Posts and the feed
 
-References
-____________________
+Story notes live in `_posts/` as normal Jekyll posts. They use `_layouts/post.html`. The RSS feed is the hand-written [`feed.xml`](feed.xml). GitHub Pages always loads `jekyll-feed`, and that plugin leaves an existing `feed.xml` alone, so this file is the one that publishes.
 
-[ComicGen - Character - deynuovo - dozed](https://gramener.com/comicgen/v1/comic?name=deynuovo&angle=sitting&emotion=dozing&pose=sittingatdesk&shirt=%23bdc59a&face=%23f9e6c8&box=1&boxcolor=%23000000&boxgap=&mirror=mirror)
+## Build locally
 
-[ComicGen - Character - ava - holdingbook](https://gramener.com/comicgen/v1/comic?name=ava&emotion=lookingdown&pose=holdingbook&shirt=%23bdc59a&box=1&boxcolor=%23000000&boxgap=&mirror=mirror)
+The site is built with the `github-pages` gem so the local result matches GitHub Pages (Jekyll 3.10, whitelisted plugins only). No custom plugins.
 
-Credits
-____________________
+```bash
+bundle install
+bundle exec jekyll serve
+```
 
-The Never Flinch strip is a fan-made, non-commercial, spoiler-free premise comic with original dialogue, based only on the publisher's public blurb. It is not affiliated with or endorsed by Stephen King or Scribner. *Never Flinch* © Stephen King / Scribner.
+Open <http://127.0.0.1:4000/timeline/>. `url` and `baseurl` are set in `_config.yml`.
 
-- **Comicgen** by Gramener ([gramener.com/comicgen](https://gramener.com/comicgen/), [github.com/gramener/comicgen](https://github.com/gramener/comicgen)). The code is MIT. Copyright 2019 Gramener.
-- **Character art** (Comicgen v1 character credits): Priya / Priyanuova, Dee / Deenuova, and Dey by Ramya Mylavarapu, CC0. Sophie by Shawf Designs, CC0. CC0 does not require attribution; the artists are credited here as a courtesy.
-- **Noto emoji** (envelope) © Google Inc., licensed under the Apache License, Version 2.0. http://www.apache.org/licenses/LICENSE-2.0
-- **Fonts:** Patrick Hand (Patrick Wagesreiter) and Bangers (Vernon Adams), SIL Open Font License 1.1. Embedded as Latin subsets, which the OFL permits.
+## Comic art
 
+Comicgen's browser build does not publish a versioned `dist/` file. `assets/vendor/comicgen/` is the build that was served at `https://gramener.com/comicgen/dist/` (the file reports version `0.4.0`). Character artwork is still requested from `https://gramener.com/comicgen/`; the saved script pins that base URL so moving the file into this repo does not break the figures.
 
+The Never Flinch strip is fan-made, non-commercial, and based on the public publisher blurb. It is not affiliated with or endorsed by Stephen King or Scribner.
+
+- **Comicgen** by Gramener ([gramener.com/comicgen](https://gramener.com/comicgen/), [github.com/gramener/comicgen](https://github.com/gramener/comicgen)); code under MIT.
+- **Character art** uses Comicgen CC0 character assets, including Sophie.
+- **Noto emoji** (envelope) © Google Inc., Apache License 2.0.
+- **Fonts:** Patrick Hand and Bangers, SIL Open Font License 1.1.

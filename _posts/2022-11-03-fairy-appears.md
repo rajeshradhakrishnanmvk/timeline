@@ -1,3 +1,9 @@
+---
+layout: post
+title: A fairy appears
+summary: Storyboard for the later scenes, when fairy Ava appears to help Brad write.
+---
+
 Stroyboard with scripted
 
 _______________________
