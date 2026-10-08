@@ -13,7 +13,7 @@
       <div id="{{ book.id }}" class="container {{ side }}">
         <div class="content">
           <h2>{{ book.year }} - {{ book.title }}</h2>
-          <p>{{ book.description }} <a href="{{ book.source }}">more...</a></p>
+          <p>{{ book.description }} <a href="{{ book.source | escape }}">more...</a></p>
         </div>
       </div>
       {% if book.comic == "carrie" %}

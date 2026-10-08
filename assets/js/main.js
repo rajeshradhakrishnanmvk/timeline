@@ -32,7 +32,7 @@
   var next = document.querySelector(".slideshow-container .next");
   if (prev) {
     prev.addEventListener("click", function () {
-      showSlides(slideIndex += 1 * -1);
+      showSlides(slideIndex += -1);
     });
   }
   if (next) {
@@ -105,7 +105,7 @@
     }
     lastFocus = trigger || document.activeElement;
     modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
+    modal.removeAttribute("aria-hidden");
     if (closeButton) {
       closeButton.focus();
     }

@@ -4,7 +4,7 @@ title: I want to become an author
 summary: Storyboard for the opening scenes, with Brad and Lilly in a cafeteria.
 ---
 
-Stroyboard with scripted
+Storyboard with scripted
 
 _______________________
 
