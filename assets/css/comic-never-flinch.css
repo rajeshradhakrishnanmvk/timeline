@@ -1,0 +1,26 @@
+/* Never Flinch strip. Patrick Hand and Bangers are SIL OFL 1.1 Latin subsets. */
+@font-face{font-family:'Patrick Hand';src:url('../fonts/PatrickHand-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'Bangers';src:url('../fonts/Bangers-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+
+/* Never Flinch strip styles (scoped to .nf-strip). Fonts fall back to the site's cursive stack. */
+
+.nf-strip{--nf-ink:#111;font-family:'Patrick Hand','Comic Neue','Comic Sans MS',cursive;color:var(--nf-ink);max-width:min(1240px,100%);margin:0 auto}
+.nf-strip *{box-sizing:border-box}
+.nf-head{text-align:center;margin:0 0 12px;padding:0 2rem}
+.nf-head h1{font-family:Bangers,Impact,sans-serif;font-weight:400;letter-spacing:.06em;font-size:clamp(2rem,7vw,3.2rem);margin:0;line-height:1}
+.nf-head p{margin:.2rem 0 0;font-size:clamp(.95rem,3.4vw,1.15rem)}
+.nf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start}
+@media (max-width:960px){.nf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.nf-grid{grid-template-columns:minmax(0,1fr);gap:12px}}
+.nf-panel{margin:0;background:#fff;border:3px solid var(--nf-ink);box-shadow:0 6px 6px -6px #000;display:flex;flex-direction:column;min-width:0}
+.nf-cap{margin:0;padding:6px 10px;background:#fff6c7;border-bottom:3px solid var(--nf-ink);font-size:1.02rem;line-height:1.25;min-height:calc(2.5em + 15px);display:flex;align-items:center;gap:8px}
+@media (max-width:620px){.nf-cap{min-height:0}}
+.nf-num{flex:0 0 auto;font-family:Bangers,Impact,sans-serif;background:var(--nf-ink);color:#fff;border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;letter-spacing:0}
+.nf-art{display:block;width:100%;height:auto;max-width:100%}
+.nf-art .nf-shadow{filter:url(#nf-silhouette)}
+.nf-art .nf-faint{opacity:.55}
+.nf-credit{margin:14px 0 0;font-size:.9rem;line-height:1.35;color:#333;text-align:center}
+.nf-credit a{color:inherit}
+
+[data-comic-book="never-flinch"]{min-width:0;max-width:100%;overflow-x:hidden}
+.nf-head h1,.nf-head p,.nf-cap,.nf-credit{overflow-wrap:anywhere}

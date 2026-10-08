@@ -32,7 +32,7 @@
   var next = document.querySelector(".slideshow-container .next");
   if (prev) {
     prev.addEventListener("click", function () {
-      showSlides(slideIndex += 1 * -1);
+      showSlides(slideIndex += -1);
     });
   }
   if (next) {
@@ -48,8 +48,9 @@
   showSlides(slideIndex);
 
   var modal = document.getElementById("comicModal");
-  var openButton = document.getElementById("btnComicBook");
+  var openButtons = document.querySelectorAll("[data-open-comic]");
   var closeButton = document.getElementById("comicModalClose");
+  var comicBooks = modal ? modal.querySelectorAll("[data-comic-book]") : [];
   var lastFocus = null;
 
   function focusableIn(container) {
@@ -59,6 +60,15 @@
         return el.offsetParent !== null || el === document.activeElement;
       }
     );
+  }
+
+  function setComicBook(comicId) {
+    if (!comicBooks.length) {
+      return;
+    }
+    Array.prototype.forEach.call(comicBooks, function (comicBook) {
+      comicBook.hidden = comicBook.getAttribute("data-comic-book") !== comicId;
+    });
   }
 
   function onModalKeydown(event) {
@@ -89,13 +99,13 @@
     }
   }
 
-  function openModal() {
+  function openModal(trigger) {
     if (!modal) {
       return;
     }
-    lastFocus = document.activeElement;
+    lastFocus = trigger || document.activeElement;
     modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
+    modal.removeAttribute("aria-hidden");
     if (closeButton) {
       closeButton.focus();
     }
@@ -112,8 +122,13 @@
     }
   }
 
-  if (openButton && modal) {
-    openButton.addEventListener("click", openModal);
+  if (openButtons.length && modal) {
+    Array.prototype.forEach.call(openButtons, function (openButton) {
+      openButton.addEventListener("click", function () {
+        setComicBook(openButton.getAttribute("data-open-comic") || "carrie");
+        openModal(openButton);
+      });
+    });
   }
   if (closeButton) {
     closeButton.addEventListener("click", closeModal);

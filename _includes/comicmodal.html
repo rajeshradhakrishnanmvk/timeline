@@ -2,6 +2,7 @@
   <div class="comic-king-modal-content">
     <button type="button" class="close" id="comicModalClose" aria-label="Close comic">&times;</button>
     <h2 id="comic-dialog-title" class="visually-hidden">Comic book</h2>
-    {% include comicbook.html %}
+    <div data-comic-book="carrie">{% include comicbook.html %}</div>
+    <div data-comic-book="never-flinch" hidden>{% include comicbook-never-flinch.html %}</div>
   </div>
 </div>

@@ -4,7 +4,7 @@ title: A fairy appears
 summary: Storyboard for the later scenes, when fairy Ava appears to help Brad write.
 ---
 
-Stroyboard with scripted
+Storyboard with scripted
 
 _______________________
 
@@ -74,5 +74,4 @@ ____________________
 [ComicGen - Character - deynuovo - dozed](https://gramener.com/comicgen/v1/comic?name=deynuovo&angle=sitting&emotion=dozing&pose=sittingatdesk&shirt=%23bdc59a&face=%23f9e6c8&box=1&boxcolor=%23000000&boxgap=&mirror=mirror)
 
 [ComicGen - Character - ava - holdingbook](https://gramener.com/comicgen/v1/comic?name=ava&emotion=lookingdown&pose=holdingbook&shirt=%23bdc59a&box=1&boxcolor=%23000000&boxgap=&mirror=mirror)
-
 
