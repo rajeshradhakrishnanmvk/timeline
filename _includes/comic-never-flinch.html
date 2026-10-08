@@ -1,0 +1,14 @@
+<!-- _includes/comic-never-flinch.html: timeline teaser card for the Never Flinch entry.
+     Mirrors comic-carrie.html: shows panel 1 inline, eye button opens the modal. -->
+<div class="comic-container {{ comic_side | default: 'comic-right' }}">
+  <div class="comic-panel comic-content">
+    <div class="comic-caption-top">Never Flinch: the premise in 6 panels</div>
+    <img src="{{ '/assets/comics/never-flinch/panel-1.png' | relative_url }}"
+         width="300" height="200" style="width:100%;height:auto;object-fit:cover"
+         alt="Detective Izzy Jaynes reads a threatening letter in her police office">
+    <button type="button" class="btn" data-open-comic="never-flinch"
+            title="Comic book" aria-label="Open the Never Flinch comic strip">
+      <i class="fa-regular fa-eye" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>

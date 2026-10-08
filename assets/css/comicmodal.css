@@ -20,6 +20,29 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  [data-comic-book] {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  [data-comic-book][hidden] {
+    display: none !important;
+  }
+
+  @media screen and (max-width: 620px) {
+    .comic-king-modal {
+      padding-top: 12px;
+    }
+
+    .comic-king-modal-content {
+      width: calc(100% - 16px);
+      padding: 28px 10px 12px;
+      overflow-x: hidden;
+    }
   }
   
   /* The Close Button */

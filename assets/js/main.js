@@ -115,3 +115,47 @@ async function fetchSentiments(messages) {
 
 }
 //Prediction using HF model - END
+
+// Comic modal: any [data-open-comic] button opens the matching book.
+(function () {
+  var modal = document.getElementById("comicModal");
+  if (!modal) return;
+
+  function openModal() {
+    modal.style.display = "block";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  document.querySelectorAll("[data-open-comic]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var id = btn.getAttribute("data-open-comic");
+      modal.querySelectorAll("[data-comic-book]").forEach(function (el) {
+        el.hidden = el.getAttribute("data-comic-book") !== id;
+      });
+      modal.setAttribute("aria-label", id === "never-flinch" ? "Never Flinch comic" : "Carrie comic");
+      openModal();
+    });
+  });
+
+  var closeBtn = modal.querySelector(".close");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+    closeBtn.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        closeModal();
+      }
+    });
+  }
+
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && modal.style.display === "block") closeModal();
+  });
+})();
