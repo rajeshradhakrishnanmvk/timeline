@@ -1,5 +1,22 @@
-plugins:
-  - jekyll-feed
-title: Books timeline
-description: Stephen King's books
+title: Stephen King book timeline
+description: A chronological timeline of Stephen King's novels.
 author: Rajesh Radhakrishnan
+url: "https://rajeshradhakrishnanmvk.github.io"
+baseurl: "/timeline"
+
+# Classic GitHub Pages builds this repository from the main branch root.
+# Pages always loads jekyll-feed, and that plugin skips its own feed when
+# feed.xml is already in the repo. This hand-written feed is the one that
+# publishes, with item links under /timeline/.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
