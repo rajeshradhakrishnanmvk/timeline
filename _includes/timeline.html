@@ -1,65 +1,29 @@
-<section>
-    <div id="timeline" class="timeline">
-        {% include carrie.html %}
-        {% include salem_s_lot.html %}
-        {% include theshining.html %}
-        {% include rage.html %}
-        {% include thelongwalk.html %}
-        {% include roadwork.html %}
-        {% include cujo.html %}
-        {% include therunningman.html %}
-        {% include thegunslinger.html%}
-        {% include christine.html %}
-        {% include cycleofthewerewolf.html %}
-        {% include thetalisman.html %}
-        {% include theeyesofthedragon.html %}
-        {% include thinner.html %}
-        {% include it.html %}
-        {% include thedrawingofthethree.html %}
-        {% include misery.html %}
-        {% include thetommyknockers.html %}
-        {% include thedarkhalf.html %}
-        {% include thestand.html %}
-        {% include thewastelands.html %}
-        {% include needfulthings.html %}
-        {% include gerald_s_game.html %}
-        {% include insomnia.html %}
-        {% include rosemadder.html %}
-        {% include thegreenmile.html %}
-        {% include desperation.html %}
-        {% include theregulators.html %}
-        {% include wizardandglass.html %}
-        {% include bagofbones.html %}
-        {% include thegirlwholovedtomgordon.html %}
-        {% include blackhouse.html %}
-        {% include fromabuick8.html %}
-        {% include wolvesofthecalla.html %}
-        {% include songofsusannah.html %}
-        {% include thedarktower.html %}
-        {% include thecoloradokid.html %}
-        {% include cell.html %}
-        {% include lisey_s_story.html  %}
-        {% include blaze.html %}
-        {% include dumakey.html %}
-        {% include underthedome.html %}
-        {% include 11_22_63.html %}
-        {% include thewindthroughthekeyhole.html %}
-        {% include joyland.html %}
-        {% include doctorsleep.html %}
-        {% include mr_mercedes.html %}
-        {% include revival.html %}
-        {% include finderskeepers.html %}
-        {% include endofwatch.html %}
-        {% include gwendy_s_buttonbox.html %}
-        {% include sleepingbeauties.html %}
-        {% include theoutsider.html %}
-        {% include elevation.html %}
-        {% include theinstitute.html %}
-        {% include later.html %}
-        {% include billysummers.html %}
-        {% include gwendy_s_finaltask.html %}
-        {% include fairytale.html %}
-        {% include holly.html %}
-        {% include comicmodal.html %}
+<section class="timeline-section" aria-labelledby="page-title">
+  <div id="timeline" class="timeline">
+    {% assign books = site.data.books | sort: "date" %}
+    {% for book in books %}
+      {% assign side_index = forloop.index0 | modulo: 2 %}
+      {% if side_index == 0 %}
+        {% assign side = "left" %}
+        {% assign comic_side = "comic-right" %}
+      {% else %}
+        {% assign side = "right" %}
+        {% assign comic_side = "comic-left" %}
+      {% endif %}
+      <div id="{{ book.id }}" class="container {{ side }}">
+        <div class="content">
+          <h2>{{ book.year }} - {{ book.title }}</h2>
+          <p>{{ book.description }} <a href="{{ book.source }}">more...</a></p>
+        </div>
       </div>
+      {% if book.comic == "carrie" %}
+        {% include comic-carrie.html %}
+      {% elsif book.comic == "salems-lot" %}
+        {% include comic-salems-lot.html %}
+      {% elsif book.comic == "shining" %}
+        {% include comic-shining.html %}
+      {% endif %}
+    {% endfor %}
+    {% include comicmodal.html %}
+  </div>
 </section>

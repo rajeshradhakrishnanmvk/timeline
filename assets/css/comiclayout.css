@@ -124,3 +124,23 @@
   .panel-comic-book:nth-child(4n+4) {
     background-image:radial-gradient(circle, lightcoral, tomato);
   }
+
+  @media screen and (max-width: 600px) {
+    .comic-book {
+      padding: 0;
+    }
+
+    .panel-comic-book,
+    .panel-comic-book:nth-child(n) {
+      flex-basis: 100%;
+      max-width: 100%;
+      height: auto;
+      min-height: 180px;
+    }
+
+    .panel-comic-book svg {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }

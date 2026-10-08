@@ -1,3 +1,9 @@
+---
+layout: post
+title: I want to become an author
+summary: Storyboard for the opening scenes, with Brad and Lilly in a cafeteria.
+---
+
 Stroyboard with scripted
 
 _______________________
@@ -57,7 +63,7 @@ ___________________
     <td>cafeteria
     <td>coffee mug
  </tr>
-</table
+</table>
 
 Comic Shot
 ____________________

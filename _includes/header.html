@@ -1,7 +1,12 @@
-<div id="header">
-    <img id="visitorbadge">
-    <a href="./feed.xml" target="_blank">
-      <img src="https://img.shields.io/badge/rss-feed-orange">
-      <i class="fa-solid fa-rss"></i>
-    </a>
-</div>
+<header id="header">
+  {% if page.layout == "post" %}
+    <p class="site-title"><a href="{{ '/' | relative_url }}">Stephen King book timeline</a></p>
+  {% else %}
+    <h1 id="page-title">Stephen King book timeline</h1>
+  {% endif %}
+  <a class="feed-link" href="{{ '/feed.xml' | relative_url }}">
+    <img src="https://img.shields.io/badge/rss-feed-orange" alt="RSS feed">
+    <i class="fa-solid fa-rss" aria-hidden="true"></i>
+    <span class="visually-hidden">Subscribe to the RSS feed</span>
+  </a>
+</header>
