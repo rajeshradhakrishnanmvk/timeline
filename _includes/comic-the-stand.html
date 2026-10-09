@@ -1,0 +1,14 @@
+<!-- _includes/comic-the-stand.html: timeline teaser card for The Stand entry.
+     Mirrors comic-never-flinch.html: shows panel 1 inline, eye button opens the modal. -->
+<div class="comic-container {{ comic_side | default: 'comic-right' }}">
+  <div class="comic-panel comic-content">
+    <div class="comic-caption-top">The Stand: the premise in 6 panels</div>
+    <img src="{{ '/assets/comics/the-stand/panel-1.png' | relative_url }}"
+         width="300" height="200" style="width:100%;height:auto;object-fit:cover"
+         alt="A lab worker shouts as a man leaves a testing facility">
+    <button type="button" class="btn" data-open-comic="the-stand"
+            title="Comic book" aria-label="Open The Stand comic strip">
+      <i class="fa-regular fa-eye" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
