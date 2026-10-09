@@ -1,7 +1,7 @@
 # Stephen King novels, first-publication order.
 # The timeline sorts on `date` and alternates sides automatically.
 # `year` is the heading year. `source` is a Wikipedia or stephenking.com page.
-# Optional `comic` draws a Gramener panel: carrie, salems-lot, or shining.
+# Optional `comic` attaches a strip: carrie, salems-lot, shining, never-flinch, or the-stand.
 # Descriptions are original and spoiler-light. Do not paste text from other sites.
 
 - id: carrie
@@ -51,6 +51,7 @@
   year: 1978
   date: 1978-10-01
   title: The Stand
+  comic: the-stand
   source: "https://en.wikipedia.org/wiki/The_Stand"
   description: >-
     First published by Doubleday in October 1978. A weaponized flu kills most
