@@ -1,51 +1,89 @@
 (function () {
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  var slideIndex = 1;
+  // Each .slideshow-container is its own strip. Direct-child .mySlides,
+  // .prev/.next inside the container, and a following .slide-dots sibling
+  // (Carrie, Never Flinch, or a later strip such as The Stand) do not share
+  // an index. Adopt the same markup and this loop picks the new strip up.
+  function initSlideshow(container) {
+    var slides = container.querySelectorAll(":scope > .mySlides");
+    var dotHost = container.nextElementSibling;
+    var dots = dotHost && dotHost.classList.contains("slide-dots")
+      ? dotHost.querySelectorAll(".dot")
+      : container.querySelectorAll(":scope > .dot");
+    var status = container.querySelector("[data-slide-status]");
+    var index = 0;
 
-  function showSlides(n) {
-    var i;
-    if (!slides.length) {
-      return;
+    function show(n) {
+      var i;
+      if (!slides.length) {
+        return;
+      }
+      index = (n % slides.length + slides.length) % slides.length;
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = i === index ? "block" : "none";
+        slides[i].setAttribute("aria-hidden", i === index ? "false" : "true");
+      }
+      for (i = 0; i < dots.length; i++) {
+        if (i === index) {
+          dots[i].classList.add("active");
+          dots[i].setAttribute("aria-current", "true");
+        } else {
+          dots[i].classList.remove("active");
+          dots[i].removeAttribute("aria-current");
+        }
+      }
+      if (status) {
+        status.textContent = "Scene " + (index + 1) + " of " + slides.length;
+      }
     }
-    if (n > slides.length) {
-      slideIndex = 1;
+
+    function onKey(event) {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+        return;
+      }
+      if (event.target && event.target.closest && event.target.closest("input, textarea, select")) {
+        return;
+      }
+      event.preventDefault();
+      show(event.key === "ArrowLeft" ? index - 1 : index + 1);
     }
-    if (n < 1) {
-      slideIndex = slides.length;
+
+    var prev = container.querySelector(":scope > .prev");
+    var next = container.querySelector(":scope > .next");
+    if (prev) {
+      prev.addEventListener("click", function () { show(index - 1); });
     }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    if (next) {
+      next.addEventListener("click", function () { show(index + 1); });
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].classList.remove("active");
-      dots[i].removeAttribute("aria-current");
+    Array.prototype.forEach.call(dots, function (dot, dotIndex) {
+      dot.addEventListener("click", function () { show(dotIndex); });
+    });
+    container.addEventListener("keydown", onKey);
+    if (dotHost && dotHost.classList.contains("slide-dots")) {
+      dotHost.addEventListener("keydown", onKey);
     }
-    slides[slideIndex - 1].style.display = "block";
-    if (dots[slideIndex - 1]) {
-      dots[slideIndex - 1].classList.add("active");
-      dots[slideIndex - 1].setAttribute("aria-current", "true");
-    }
+
+    var startX = null;
+    container.addEventListener("touchstart", function (event) {
+      if (event.changedTouches && event.changedTouches[0]) {
+        startX = event.changedTouches[0].clientX;
+      }
+    }, { passive: true });
+    container.addEventListener("touchend", function (event) {
+      if (startX === null || !event.changedTouches || !event.changedTouches[0]) {
+        return;
+      }
+      var delta = event.changedTouches[0].clientX - startX;
+      if (Math.abs(delta) > 40) {
+        show(delta < 0 ? index + 1 : index - 1);
+      }
+      startX = null;
+    }, { passive: true });
+
+    show(0);
   }
 
-  var prev = document.querySelector(".slideshow-container .prev");
-  var next = document.querySelector(".slideshow-container .next");
-  if (prev) {
-    prev.addEventListener("click", function () {
-      showSlides(slideIndex += -1);
-    });
-  }
-  if (next) {
-    next.addEventListener("click", function () {
-      showSlides(slideIndex += 1);
-    });
-  }
-  Array.prototype.forEach.call(dots, function (dot, index) {
-    dot.addEventListener("click", function () {
-      showSlides(slideIndex = index + 1);
-    });
-  });
-  showSlides(slideIndex);
+  Array.prototype.forEach.call(document.querySelectorAll(".slideshow-container"), initSlideshow);
 
   var modal = document.getElementById("comicModal");
   var openButtons = document.querySelectorAll("[data-open-comic]");
