@@ -1,11 +1,19 @@
-<!-- The Stand premise strip. Original dialogue from the publisher premise only. -->
+<!-- The Stand premise strip, one scene at a time.
+     Slideshow markup matches Carrie: a .slideshow-container of direct-child
+     .mySlides, direct-child .prev/.next, then a sibling .slide-dots.
+     assets/js/main.js (after the generic slideshow change) drives this strip
+     on its own. The small script below only runs when that initializer is
+     absent, so this file does not edit the shared script. -->
 <section class="st-strip" aria-label="The Stand premise comic strip">
 <header class="st-head">
 <h1>THE STAND</h1>
 <p>Stephen King · Doubleday, October 1978 · spoiler-free premise strip</p>
 </header>
-<div class="st-grid">
-<figure class="st-panel" id="st-panel-1" data-scene="1">
+<div class="st-slideshow">
+    <div class="slideshow-container" aria-roledescription="slideshow" aria-label="The Stand scenes">
+      <div class="mySlides fade" data-scene="1">
+        <div class="numbertext">1 / 6</div>
+        <figure class="st-panel" id="st-panel-1" data-scene="1">
 <figcaption class="st-cap"><span class="st-num" aria-hidden="true">1</span><span>A testing facility. A man leaves carrying a weaponized flu he does not know he has.</span></figcaption>
 <svg class="st-art" viewBox="0 0 600 400" role="img" aria-labelledby="st-t1" preserveAspectRatio="xMidYMid meet"><title id="st-t1">A lab worker shouts as a smiling man walks out an open door</title>
 <rect width="600" height="400" fill="#d5e2ea"/>
@@ -54,7 +62,10 @@
 </text></g>
 <rect x="1.5" y="1.5" width="597" height="397" fill="none" stroke="#111" stroke-width="3"/></svg>
 </figure>
-<figure class="st-panel" id="st-panel-2" data-scene="2">
+      </div>
+      <div class="mySlides fade" data-scene="2">
+        <div class="numbertext">2 / 6</div>
+        <figure class="st-panel" id="st-panel-2" data-scene="2">
 <figcaption class="st-cap"><span class="st-num" aria-hidden="true">2</span><span>The flu spreads by ordinary contact, from one street to the next.</span></figcaption>
 <svg class="st-art" viewBox="0 0 600 400" role="img" aria-labelledby="st-t2" preserveAspectRatio="xMidYMid meet"><title id="st-t2">A tired woman and a worried man talk on a city street beside a bus</title>
 <rect width="600" height="400" fill="#f4e2b8"/>
@@ -99,7 +110,10 @@
 </text></g>
 <rect x="1.5" y="1.5" width="597" height="397" fill="none" stroke="#111" stroke-width="3"/></svg>
 </figure>
-<figure class="st-panel" id="st-panel-3" data-scene="3">
+      </div>
+      <div class="mySlides fade" data-scene="3">
+        <div class="numbertext">3 / 6</div>
+        <figure class="st-panel" id="st-panel-3" data-scene="3">
 <figcaption class="st-cap"><span class="st-num" aria-hidden="true">3</span><span>Within a few weeks, most of the world is gone.</span></figcaption>
 <svg class="st-art" viewBox="0 0 600 400" role="img" aria-labelledby="st-t3" preserveAspectRatio="xMidYMid meet"><title id="st-t3">A lone survivor stands in an empty street among abandoned cars</title>
 <rect width="600" height="400" fill="#b7c0c8"/>
@@ -138,7 +152,10 @@
 </text></g>
 <rect x="1.5" y="1.5" width="597" height="397" fill="none" stroke="#111" stroke-width="3"/></svg>
 </figure>
-<figure class="st-panel" id="st-panel-4" data-scene="4">
+      </div>
+      <div class="mySlides fade" data-scene="4">
+        <div class="numbertext">4 / 6</div>
+        <figure class="st-panel" id="st-panel-4" data-scene="4">
 <figcaption class="st-cap"><span class="st-num" aria-hidden="true">4</span><span>The people who remain feel a pull they cannot explain.</span></figcaption>
 <svg class="st-art" viewBox="0 0 600 400" role="img" aria-labelledby="st-t4" preserveAspectRatio="xMidYMid meet"><title id="st-t4">Two survivors stand where a road divides, each drawn a different way</title>
 <rect width="600" height="400" fill="#f6d7a8"/>
@@ -169,7 +186,10 @@
 </text></g>
 <rect x="1.5" y="1.5" width="597" height="397" fill="none" stroke="#111" stroke-width="3"/></svg>
 </figure>
-<figure class="st-panel" id="st-panel-5" data-scene="5">
+      </div>
+      <div class="mySlides fade" data-scene="5">
+        <div class="numbertext">5 / 6</div>
+        <figure class="st-panel" id="st-panel-5" data-scene="5">
 <figcaption class="st-cap"><span class="st-num" aria-hidden="true">5</span><span>Some are drawn toward a figure who offers shelter.</span></figcaption>
 <svg class="st-art" viewBox="0 0 600 400" role="img" aria-labelledby="st-t5" preserveAspectRatio="xMidYMid meet"><title id="st-t5">A woman walks toward a warm open-armed figure and a small gathering</title>
 <rect width="600" height="400" fill="#f6c97a"/>
@@ -206,7 +226,10 @@
 </text></g>
 <rect x="1.5" y="1.5" width="597" height="397" fill="none" stroke="#111" stroke-width="3"/></svg>
 </figure>
-<figure class="st-panel" id="st-panel-6" data-scene="6">
+      </div>
+      <div class="mySlides fade" data-scene="6">
+        <div class="numbertext">6 / 6</div>
+        <figure class="st-panel" id="st-panel-6" data-scene="6">
 <figcaption class="st-cap"><span class="st-num" aria-hidden="true">6</span><span>Others are drawn toward an opposing figure. They will have to choose.</span></figcaption>
 <svg class="st-art" viewBox="0 0 600 400" role="img" aria-labelledby="st-t6" preserveAspectRatio="xMidYMid meet"><title id="st-t6">A man faces a tall dark figure while a few people already stand near it</title>
 <rect width="600" height="400" fill="#14182e"/>
@@ -249,6 +272,68 @@
 </g>
 <rect x="1.5" y="1.5" width="597" height="397" fill="none" stroke="#111" stroke-width="3"/></svg>
 </figure>
-</div>
-<p class="st-credit">Fan-made, spoiler-free strip based only on the publisher’s premise; dialogue is original. Characters rendered with <a href="https://gramener.com/comicgen/">Gramener Comicgen</a> (Ava, Bean, Dey, and Ethan; CC0 character art). Fonts: Patrick Hand &amp; Bangers (SIL OFL).</p>
+      </div>
+      <button type="button" class="prev" aria-label="Previous scene">&#10094;</button>
+      <button type="button" class="next" aria-label="Next scene">&#10095;</button>
+      <p class="visually-hidden" data-slide-status aria-live="polite"></p>
+    </div>
+    <div class="slide-dots" role="group" aria-label="Choose a Stand scene">
+        <button type="button" class="dot" aria-label="Show scene 1"></button>
+        <button type="button" class="dot" aria-label="Show scene 2"></button>
+        <button type="button" class="dot" aria-label="Show scene 3"></button>
+        <button type="button" class="dot" aria-label="Show scene 4"></button>
+        <button type="button" class="dot" aria-label="Show scene 5"></button>
+        <button type="button" class="dot" aria-label="Show scene 6"></button>
+    </div>
+  </div>
+  <p class="st-credit">Fan-made, spoiler-free strip based only on the publisher’s premise; dialogue is original. Characters rendered with <a href="https://gramener.com/comicgen/">Gramener Comicgen</a> (Ava, Bean, Dey, and Ethan; CC0 character art). Fonts: Patrick Hand &amp; Bangers (SIL OFL).</p>
 </section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var container = document.querySelector(".st-strip .slideshow-container");
+  if (!container) return;
+  var slides = container.querySelectorAll(":scope > .mySlides");
+  if (!slides.length || slides[0].hasAttribute("aria-hidden")) return;
+  var dotHost = container.nextElementSibling;
+  var dots = dotHost && dotHost.classList.contains("slide-dots")
+    ? Array.prototype.slice.call(dotHost.querySelectorAll(".dot"))
+    : [];
+  Array.prototype.forEach.call(slides, function (slide) {
+    slide.classList.remove("mySlides");
+  });
+  var freshDots = dots.map(function (dot) {
+    var fresh = dot.cloneNode(true);
+    dot.parentNode.replaceChild(fresh, dot);
+    return fresh;
+  });
+  var index = 0;
+  var status = container.querySelector("[data-slide-status]");
+  function show(n) {
+    index = (n % slides.length + slides.length) % slides.length;
+    Array.prototype.forEach.call(slides, function (slide, i) {
+      slide.style.display = i === index ? "block" : "none";
+      slide.setAttribute("aria-hidden", i === index ? "false" : "true");
+    });
+    freshDots.forEach(function (dot, i) {
+      if (i === index) {
+        dot.classList.add("active");
+        dot.classList.add("is-current");
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.classList.remove("active");
+        dot.classList.remove("is-current");
+        dot.removeAttribute("aria-current");
+      }
+    });
+    if (status) status.textContent = "Scene " + (index + 1) + " of " + slides.length;
+  }
+  var prev = container.querySelector(":scope > .prev");
+  var next = container.querySelector(":scope > .next");
+  if (prev) prev.addEventListener("click", function () { show(index - 1); });
+  if (next) next.addEventListener("click", function () { show(index + 1); });
+  freshDots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () { show(i); });
+  });
+  show(0);
+});
+</script>
