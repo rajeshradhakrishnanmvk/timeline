@@ -144,3 +144,84 @@
       height: auto;
     }
   }
+
+  /* Carrie modal slideshow. Panels stay .panel-comic-book (speech, gradients,
+     captions) but are no longer direct children of .comic-book, so the old
+     nth-child colours are reapplied from each slide. */
+  [data-comic-book="carrie"] .comic-book {
+    display: block;
+  }
+
+  [data-comic-book="carrie"] .carrie-slideshow {
+    max-width: min(440px, 100%);
+    margin: 0 auto;
+    min-width: 0;
+  }
+
+  [data-comic-book="carrie"] .slideshow-container {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    touch-action: pan-y;
+  }
+
+  [data-comic-book="carrie"] .mySlides {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  [data-comic-book="carrie"] .numbertext {
+    color: #111;
+    font-size: 12px;
+    padding: 4px 8px 6px;
+  }
+
+  [data-comic-book="carrie"] .mySlides .panel-comic-book {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 220px;
+    margin: 0;
+    flex: none;
+  }
+
+  [data-comic-book="carrie"] .slideshow-container > .mySlides:nth-child(4n+1) > .panel-comic-book {
+    background-image: radial-gradient(circle, yellow, orange);
+  }
+
+  [data-comic-book="carrie"] .slideshow-container > .mySlides:nth-child(4n+2) > .panel-comic-book {
+    background-image: radial-gradient(circle, lightblue, deepskyblue);
+  }
+
+  [data-comic-book="carrie"] .slideshow-container > .mySlides:nth-child(4n+3) > .panel-comic-book {
+    background-image: radial-gradient(circle, palegreen, yellowgreen);
+  }
+
+  [data-comic-book="carrie"] .slideshow-container > .mySlides:nth-child(4n+4) > .panel-comic-book {
+    background-image: radial-gradient(circle, lightcoral, tomato);
+  }
+
+  [data-comic-book="carrie"] button.prev,
+  [data-comic-book="carrie"] button.next {
+    color: #111;
+    background: rgba(255, 255, 255, 0.92);
+    border: 2px solid #111;
+    border-radius: 4px;
+    z-index: 2;
+    padding: 8px 10px;
+    line-height: 1;
+  }
+
+  [data-comic-book="carrie"] button.prev {
+    left: 6px;
+  }
+
+  [data-comic-book="carrie"] button.next {
+    right: 6px;
+  }
+
+  [data-comic-book="carrie"] .slide-dots {
+    text-align: center;
+    margin: 10px 0 0;
+  }
