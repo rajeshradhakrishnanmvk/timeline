@@ -17,6 +17,10 @@
 .lw-slideshow button.next{color:#111;background:rgba(255,255,255,.92);border:2px solid #111;border-radius:4px;z-index:2;padding:8px 10px;line-height:1}
 .lw-slideshow button.prev{left:6px}
 .lw-slideshow button.next{right:6px}
+@media (max-width:480px){
+  .lw-slideshow button.prev,
+  .lw-slideshow button.next{top:72%;margin-top:0;padding:6px 8px}
+}
 .lw-slideshow .slide-dots{text-align:center;margin:10px 0 0}
 .lw-panel{margin:0;background:#fff;border:3px solid var(--lw-ink);box-shadow:0 6px 6px -6px #000;display:flex;flex-direction:column;min-width:0;max-width:100%}
 .lw-cap{margin:0;padding:6px 10px;background:#fff6c7;border-bottom:3px solid var(--lw-ink);font-size:1.02rem;line-height:1.25;min-height:calc(2.5em + 15px);display:flex;align-items:center;gap:8px}
