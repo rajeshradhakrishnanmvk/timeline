@@ -16,7 +16,7 @@ Edit [`_data/books.yml`](_data/books.yml). Each entry needs:
 | `title` | Book title. Quote it if it contains an apostrophe |
 | `source` | A Wikipedia or [stephenking.com](https://stephenking.com/works/) page for that book |
 | `description` | A short, spoiler-light summary in your own words |
-| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `never-flinch`, or `the-stand` attaches an existing comic panel |
+| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
 
 Left and right placement alternates down the list after the sort. Do not set a side by hand.
 
@@ -44,6 +44,8 @@ Comicgen's browser build does not publish a versioned `dist/` file. `assets/vend
 The Never Flinch strip is fan-made, non-commercial, and based on the public publisher blurb. It is not affiliated with or endorsed by Stephen King or Scribner.
 
 The Stand strip is fan-made, non-commercial, and based on the public publisher premise of the 1978 novel: a weaponized flu escapes, most of the world dies, and the survivors are drawn toward two opposing figures. It is not affiliated with or endorsed by Stephen King or Doubleday.
+
+The Long Walk strip is fan-made, non-commercial, and based on the public premise of the 1979 Richard Bachman novel: teenage boys enter a walking contest that does not let them stop, warnings follow if they fall off the pace, and the last walker is promised the Prize. It is not affiliated with or endorsed by Stephen King or Signet.
 
 - **Comicgen** by Gramener ([gramener.com/comicgen](https://gramener.com/comicgen/), [github.com/gramener/comicgen](https://github.com/gramener/comicgen)); code under MIT.
 - **Character art** uses Comicgen CC0 character assets, including Sophie.
