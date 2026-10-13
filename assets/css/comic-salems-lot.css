@@ -13,15 +13,19 @@
 .sl-slideshow .slideshow-container{max-width:min(720px,100%);margin:0 auto;overflow:hidden;touch-action:pan-y}
 .sl-slideshow .mySlides{max-width:100%;min-width:0}
 .sl-slideshow .numbertext{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em;padding:0 8px 4px;color:#111}
+/* U+276E/U+276F are missing from Patrick Hand and from this system's UI font,
+   so the controls draw their own chevrons. currentColor stays #111 on the
+   white face and flips to white on the dark hover. */
 .sl-slideshow button.prev,
-.sl-slideshow button.next{color:#111;background:rgba(255,255,255,.92);border:2px solid #111;border-radius:4px;z-index:2;padding:8px 10px;line-height:1}
-.sl-slideshow button.prev,
-.sl-slideshow button.next{font-family:system-ui,sans-serif}
+.sl-slideshow button.next{color:#111;background:#fff;border:2px solid #111;border-radius:4px;z-index:2;padding:0;line-height:0;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+.sl-slideshow button.prev:hover,
+.sl-slideshow button.next:hover{background:#111;color:#fff}
+.sl-slideshow .sl-arrow{display:block;width:14px;height:14px;overflow:visible}
 .sl-slideshow button.prev{left:6px}
 .sl-slideshow button.next{right:6px}
 @media (max-width:480px){
   .sl-slideshow button.prev,
-  .sl-slideshow button.next{top:72%;margin-top:0;padding:6px 8px}
+  .sl-slideshow button.next{top:72%;margin-top:0}
 }
 .sl-slideshow .slide-dots{text-align:center;margin:10px 0 0}
 .sl-panel{margin:0;background:#fff;border:3px solid var(--sl-ink);box-shadow:0 6px 6px -6px #000;display:flex;flex-direction:column;min-width:0;max-width:100%}
