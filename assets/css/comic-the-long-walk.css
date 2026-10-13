@@ -1,8 +1,5 @@
-/* The Long Walk strip. Patrick Hand and Bangers are SIL OFL 1.1 Latin subsets. */
-@font-face{font-family:'Patrick Hand';src:url('../fonts/PatrickHand-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
-@font-face{font-family:'Bangers';src:url('../fonts/Bangers-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
-
-/* The Long Walk strip styles (scoped to .lw-strip). */
+/* The Long Walk strip styles (scoped to .lw-strip).
+   Patrick Hand and Bangers load from comic-fonts.css. */
 
 .lw-strip{--lw-ink:#111;font-family:'Patrick Hand','Comic Neue','Comic Sans MS',cursive;color:var(--lw-ink);max-width:min(1240px,100%);margin:0 auto}
 .lw-strip *{box-sizing:border-box}

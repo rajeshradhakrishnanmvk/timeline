@@ -1,0 +1,20 @@
+/* Patrick Hand and Bangers, SIL OFL 1.1 Latin subsets in assets/fonts.
+   One declaration for every strip. Repeating these @font-face rules with
+   mixed font-display values makes the block period win, so Never Flinch,
+   The Stand, The Long Walk, and 'Salem's Lot stay blank until the files
+   arrive. swap paints the fallback immediately, then the real face. */
+@font-face {
+  font-family: "Patrick Hand";
+  src: url("../fonts/PatrickHand-subset.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bangers";
+  src: url("../fonts/Bangers-subset.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
