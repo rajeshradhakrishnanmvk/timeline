@@ -1,6 +1,6 @@
 /* 'Salem's Lot strip. Patrick Hand and Bangers are SIL OFL 1.1 Latin subsets. */
-@font-face{font-family:'Patrick Hand';src:url('../fonts/PatrickHand-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
-@font-face{font-family:'Bangers';src:url('../fonts/Bangers-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'Patrick Hand';src:url('../fonts/PatrickHand-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Bangers';src:url('../fonts/Bangers-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 
 /* 'Salem's Lot strip styles (scoped to .sl-strip). */
 
@@ -15,6 +15,8 @@
 .sl-slideshow .numbertext{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em;padding:0 8px 4px;color:#111}
 .sl-slideshow button.prev,
 .sl-slideshow button.next{color:#111;background:rgba(255,255,255,.92);border:2px solid #111;border-radius:4px;z-index:2;padding:8px 10px;line-height:1}
+.sl-slideshow button.prev,
+.sl-slideshow button.next{font-family:system-ui,sans-serif}
 .sl-slideshow button.prev{left:6px}
 .sl-slideshow button.next{right:6px}
 @media (max-width:480px){
