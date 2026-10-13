@@ -1,12 +1,15 @@
-<div class="comic-container {{ comic_side }}">
-  <div class="comic-content">
-    <div class="comic-panel comic-content">
-      <div class="comic-caption-top">And this is Dey, my co-star on this strip.</div>
-      <svg role="img" aria-labelledby="salems-lot-comic-title" width="300" height="200" viewBox="0 0 500 600">
-        <title id="salems-lot-comic-title">One character laughs with a laptop while another holds a book</title>
-        <g class="comicgen" name="biden" emotion="laugh" pose="holdinglaptop" x="-120"></g>
-        <g class="comicgen" name="ethan" angle="straight" emotion="neutral" pose="holdingbook" x="150"></g>
-      </svg>
-    </div>
+<!-- _includes/comic-salems-lot.html: timeline teaser for the 'Salem's Lot entry.
+     Panel 1 is shown inline and the eye button opens the modal. The slideshow
+     markup copies Carrie: one scene at a time, not a grid. -->
+<div class="comic-container {{ comic_side | default: 'comic-right' }}">
+  <div class="comic-panel comic-content">
+    <div class="comic-caption-top">'Salem's Lot: the premise in 6 panels</div>
+    <img src="{{ '/assets/comics/salems-lot/panel-1.png' | relative_url }}"
+         width="300" height="200" style="width:100%;height:auto;object-fit:cover"
+         alt="Ben Mears comes home along a tree-lined street in Jerusalem's Lot">
+    <button type="button" class="btn" data-open-comic="salems-lot"
+            title="Comic book" aria-label="Open the 'Salem's Lot comic strip">
+      <i class="fa-regular fa-eye" aria-hidden="true"></i>
+    </button>
   </div>
 </div>

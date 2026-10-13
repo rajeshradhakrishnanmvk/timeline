@@ -1,0 +1,34 @@
+/* 'Salem's Lot strip. Patrick Hand and Bangers are SIL OFL 1.1 Latin subsets. */
+@font-face{font-family:'Patrick Hand';src:url('../fonts/PatrickHand-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'Bangers';src:url('../fonts/Bangers-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+
+/* 'Salem's Lot strip styles (scoped to .sl-strip). */
+
+.sl-strip{--sl-ink:#111;font-family:'Patrick Hand','Comic Neue','Comic Sans MS',cursive;color:var(--sl-ink);max-width:min(1240px,100%);margin:0 auto}
+.sl-strip *{box-sizing:border-box}
+.sl-head{text-align:center;margin:0 0 12px;padding:0 2rem}
+.sl-head h1{font-family:Bangers,Impact,sans-serif;font-weight:400;letter-spacing:.06em;font-size:clamp(2rem,7vw,3.2rem);margin:0;line-height:1}
+.sl-head p{margin:.2rem 0 0;font-size:clamp(.95rem,3.4vw,1.15rem)}
+.sl-slideshow{max-width:100%;min-width:0}
+.sl-slideshow .slideshow-container{max-width:min(720px,100%);margin:0 auto;overflow:hidden;touch-action:pan-y}
+.sl-slideshow .mySlides{max-width:100%;min-width:0}
+.sl-slideshow .numbertext{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em;padding:0 8px 4px;color:#111}
+.sl-slideshow button.prev,
+.sl-slideshow button.next{color:#111;background:rgba(255,255,255,.92);border:2px solid #111;border-radius:4px;z-index:2;padding:8px 10px;line-height:1}
+.sl-slideshow button.prev{left:6px}
+.sl-slideshow button.next{right:6px}
+@media (max-width:480px){
+  .sl-slideshow button.prev,
+  .sl-slideshow button.next{top:72%;margin-top:0;padding:6px 8px}
+}
+.sl-slideshow .slide-dots{text-align:center;margin:10px 0 0}
+.sl-panel{margin:0;background:#fff;border:3px solid var(--sl-ink);box-shadow:0 6px 6px -6px #000;display:flex;flex-direction:column;min-width:0;max-width:100%}
+.sl-cap{margin:0;padding:6px 10px;background:#fff6c7;border-bottom:3px solid var(--sl-ink);font-size:1.02rem;line-height:1.25;min-height:calc(2.5em + 15px);display:flex;align-items:center;gap:8px}
+@media (max-width:620px){.sl-cap{min-height:0}}
+.sl-num{flex:0 0 auto;font-family:Bangers,Impact,sans-serif;background:var(--sl-ink);color:#fff;border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;letter-spacing:0}
+.sl-art{display:block;width:100%;height:auto;max-width:100%}
+.sl-credit{margin:14px 0 0;font-size:.9rem;line-height:1.35;color:#333;text-align:center}
+.sl-credit a{color:inherit}
+
+[data-comic-book="salems-lot"]{min-width:0;max-width:100%;overflow-x:hidden}
+.sl-head h1,.sl-head p,.sl-cap,.sl-credit{overflow-wrap:anywhere}
