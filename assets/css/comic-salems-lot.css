@@ -1,8 +1,5 @@
-/* 'Salem's Lot strip. Patrick Hand and Bangers are SIL OFL 1.1 Latin subsets. */
-@font-face{font-family:'Patrick Hand';src:url('../fonts/PatrickHand-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Bangers';src:url('../fonts/Bangers-subset.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
-
-/* 'Salem's Lot strip styles (scoped to .sl-strip). */
+/* 'Salem's Lot strip styles (scoped to .sl-strip).
+   Patrick Hand and Bangers load from comic-fonts.css. */
 
 .sl-strip{--sl-ink:#111;font-family:'Patrick Hand','Comic Neue','Comic Sans MS',cursive;color:var(--sl-ink);max-width:min(1240px,100%);margin:0 auto}
 .sl-strip *{box-sizing:border-box}

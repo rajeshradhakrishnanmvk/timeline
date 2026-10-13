@@ -202,8 +202,13 @@
     background-image: radial-gradient(circle, lightcoral, tomato);
   }
 
+  /* Timeline card arrows use the same face as the Carrie modal arrows.
+     The shared .prev/.next rule is white on a transparent background, which
+     disappears on the white card. */
   [data-comic-book="carrie"] button.prev,
-  [data-comic-book="carrie"] button.next {
+  [data-comic-book="carrie"] button.next,
+  .comic-container .slideshow-container > button.prev,
+  .comic-container .slideshow-container > button.next {
     color: #111;
     background: rgba(255, 255, 255, 0.92);
     border: 2px solid #111;
@@ -213,11 +218,13 @@
     line-height: 1;
   }
 
-  [data-comic-book="carrie"] button.prev {
+  [data-comic-book="carrie"] button.prev,
+  .comic-container .slideshow-container > button.prev {
     left: 6px;
   }
 
-  [data-comic-book="carrie"] button.next {
+  [data-comic-book="carrie"] button.next,
+  .comic-container .slideshow-container > button.next {
     right: 6px;
   }
 
