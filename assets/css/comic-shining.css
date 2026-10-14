@@ -10,9 +10,7 @@
 .sh-slideshow .slideshow-container{max-width:min(720px,100%);margin:0 auto;overflow:hidden;touch-action:pan-y}
 .sh-slideshow .mySlides{max-width:100%;min-width:0}
 .sh-slideshow .numbertext{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em;padding:0 8px 4px;color:#111}
-/* U+276E/U+276F are missing from Patrick Hand and from this system's UI font,
-   so the controls draw their own chevrons. currentColor stays #111 on the
-   white face and flips to white on the dark hover. */
+/* Drawn chevrons avoid depending on a font for ❮ ❯. */
 .sh-slideshow button.prev,
 .sh-slideshow button.next{color:#111;background:#fff;border:2px solid #111;border-radius:4px;z-index:2;padding:0;line-height:0;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
 .sh-slideshow button.prev:hover,
