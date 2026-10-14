@@ -1,6 +1,6 @@
 # Stephen King book timeline
 
-A chronological timeline of Stephen King's novels, with short original descriptions and a link out to a source page for each book. Carrie and The Shining still carry the original [Gramener Comicgen](https://gramener.com/comicgen/) strips.
+A chronological timeline of Stephen King's novels, with short original descriptions and a link out to a source page for each book. Carrie still carries the original [Gramener Comicgen](https://gramener.com/comicgen/) strip.
 
 The site is published with classic GitHub Pages from the `main` branch (site root, no build Action). It is live at <https://rajeshradhakrishnanmvk.github.io/timeline/>.
 
@@ -48,6 +48,8 @@ The Stand strip is fan-made, non-commercial, and based on the public publisher p
 The Long Walk strip is fan-made, non-commercial, and based on the public premise of the 1979 Richard Bachman novel: teenage boys enter a walking contest that does not let them stop, warnings follow if they fall off the pace, and the last walker is promised the Prize. It is not affiliated with or endorsed by Stephen King or Signet.
 
 The 'Salem's Lot strip is fan-made, non-commercial, and based on the public premise of the 1975 novel: writer Ben Mears returns to Jerusalem's Lot, an old hill house has long been the subject of rumor, a stranger moves in, and after dark an unease spreads through the town. A few allies mean to face it. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Doubleday.
+
+The Shining strip is fan-made, non-commercial, and based on the public publisher premise of the 1977 novel: Jack Torrance takes the off-season caretaker job at the Overlook Hotel, hoping for a fresh start, time to write, and time with his family. Winter closes in, the remote hotel begins to feel sinister, and only five-year-old Danny notices forces gathering. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Doubleday.
 
 - **Comicgen** by Gramener ([gramener.com/comicgen](https://gramener.com/comicgen/), [github.com/gramener/comicgen](https://github.com/gramener/comicgen)); code under MIT.
 - **Character art** uses Comicgen CC0 character assets, including Sophie.
