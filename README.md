@@ -16,7 +16,7 @@ Edit [`_data/books.yml`](_data/books.yml). Each entry needs:
 | `title` | Book title. Quote it if it contains an apostrophe |
 | `source` | A Wikipedia or [stephenking.com](https://stephenking.com/works/) page for that book |
 | `description` | A short, spoiler-light summary in your own words |
-| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
+| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `the-dead-zone`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
 
 Left and right placement alternates down the list after the sort. Do not set a side by hand.
 
@@ -50,6 +50,8 @@ The Long Walk strip is fan-made, non-commercial, and based on the public premise
 The 'Salem's Lot strip is fan-made, non-commercial, and based on the public premise of the 1975 novel: writer Ben Mears returns to Jerusalem's Lot, an old hill house has long been the subject of rumor, a stranger moves in, and after dark an unease spreads through the town. A few allies mean to face it. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Doubleday.
 
 The Shining strip is fan-made, non-commercial, and based on the public publisher premise of the 1977 novel: Jack Torrance takes the off-season caretaker job at the Overlook Hotel, hoping for a fresh start, time to write, and time with his family. Winter closes in, the remote hotel begins to feel sinister, and only five-year-old Danny notices forces gathering. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Doubleday.
+
+The Dead Zone strip is fan-made, non-commercial, and based on the public publisher premise of the 1979 novel: schoolteacher Johnny Smith wakes from a five-year coma after a car accident and finds that a touch shows him someone's past or future. People call the sight a gift and bring him their problems; he feels cursed. His fiancée has married someone else. A handshake with an ambitious politician shows him something disturbing, and he has not decided what to do. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Viking Press.
 
 - **Comicgen** by Gramener ([gramener.com/comicgen](https://gramener.com/comicgen/), [github.com/gramener/comicgen](https://github.com/gramener/comicgen)); code under MIT.
 - **Character art** uses Comicgen CC0 character assets, including Sophie.

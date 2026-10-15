@@ -1,7 +1,7 @@
 # Stephen King novels, first-publication order.
 # The timeline sorts on `date` and alternates sides automatically.
 # `year` is the heading year. `source` is a Wikipedia or stephenking.com page.
-# Optional `comic` attaches a strip: carrie, salems-lot, shining, never-flinch, the-stand, or the-long-walk.
+# Optional `comic` attaches a strip: carrie, salems-lot, shining, the-dead-zone, never-flinch, the-stand, or the-long-walk.
 # Descriptions are original and spoiler-light. Do not paste text from other sites.
 
 - id: carrie
@@ -72,6 +72,7 @@
   year: 1979
   date: 1979-08-01
   title: The Dead Zone
+  comic: the-dead-zone
   source: "https://en.wikipedia.org/wiki/The_Dead_Zone_(novel)"
   description: >-
     Published in August 1979. Johnny Smith wakes from a years-long coma with
