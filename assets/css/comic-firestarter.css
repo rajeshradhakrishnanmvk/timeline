@@ -1,0 +1,35 @@
+/* Firestarter strip styles (scoped to .fs-strip).
+   Patrick Hand and Bangers load from comic-fonts.css (font-display: swap). */
+
+.fs-strip{--fs-ink:#111;font-family:'Patrick Hand','Comic Neue','Comic Sans MS',cursive;color:var(--fs-ink);max-width:min(1240px,100%);margin:0 auto}
+.fs-strip *{box-sizing:border-box}
+.fs-head{text-align:center;margin:0 0 12px;padding:0 2rem}
+.fs-head h1{font-family:Bangers,Impact,sans-serif;font-weight:400;letter-spacing:.06em;font-size:clamp(2rem,7vw,3.2rem);margin:0;line-height:1}
+.fs-head p{margin:.2rem 0 0;font-size:clamp(.95rem,3.4vw,1.15rem)}
+.fs-slideshow{max-width:100%;min-width:0}
+.fs-slideshow .slideshow-container{max-width:min(720px,100%);margin:0 auto;overflow:hidden;touch-action:pan-y}
+.fs-slideshow .mySlides{max-width:100%;min-width:0}
+.fs-slideshow .numbertext{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em;padding:0 8px 4px;color:#111}
+/* Drawn chevrons avoid depending on a font for the scene arrows. */
+.fs-slideshow button.prev,
+.fs-slideshow button.next{color:#111;background:#fff;border:2px solid #111;border-radius:4px;z-index:2;padding:0;line-height:0;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+.fs-slideshow button.prev:hover,
+.fs-slideshow button.next:hover{background:#111;color:#fff}
+.fs-slideshow .fs-arrow{display:block;width:14px;height:14px;overflow:visible}
+.fs-slideshow button.prev{left:6px}
+.fs-slideshow button.next{right:6px}
+@media (max-width:480px){
+  .fs-slideshow button.prev,
+  .fs-slideshow button.next{top:72%;margin-top:0}
+}
+.fs-slideshow .slide-dots{text-align:center;margin:10px 0 0}
+.fs-panel{margin:0;background:#fff;border:3px solid var(--fs-ink);box-shadow:0 6px 6px -6px #000;display:flex;flex-direction:column;min-width:0;max-width:100%}
+.fs-cap{margin:0;padding:6px 10px;background:#fff6c7;border-bottom:3px solid var(--fs-ink);font-size:1.02rem;line-height:1.25;min-height:calc(2.5em + 15px);display:flex;align-items:center;gap:8px}
+@media (max-width:620px){.fs-cap{min-height:0}}
+.fs-num{flex:0 0 auto;font-family:Bangers,Impact,sans-serif;background:var(--fs-ink);color:#fff;border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;letter-spacing:0}
+.fs-art{display:block;width:100%;height:auto;max-width:100%}
+.fs-credit{margin:14px 0 0;font-size:.9rem;line-height:1.35;color:#333;text-align:center}
+.fs-credit a{color:inherit}
+
+[data-comic-book="firestarter"]{min-width:0;max-width:100%;overflow-x:hidden}
+.fs-head h1,.fs-head p,.fs-cap,.fs-credit{overflow-wrap:anywhere}
