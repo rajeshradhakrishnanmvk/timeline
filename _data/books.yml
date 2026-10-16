@@ -1,7 +1,7 @@
 # Stephen King novels, first-publication order.
 # The timeline sorts on `date` and alternates sides automatically.
 # `year` is the heading year. `source` is a Wikipedia or stephenking.com page.
-# Optional `comic` attaches a strip: carrie, salems-lot, shining, the-dead-zone, never-flinch, the-stand, or the-long-walk.
+# Optional `comic` attaches a strip: carrie, salems-lot, shining, the-dead-zone, firestarter, never-flinch, the-stand, or the-long-walk.
 # Descriptions are original and spoiler-light. Do not paste text from other sites.
 
 - id: carrie
@@ -83,6 +83,7 @@
   year: 1980
   date: 1980-09-29
   title: Firestarter
+  comic: firestarter
   source: "https://en.wikipedia.org/wiki/Firestarter_(novel)"
   description: >-
     Published on September 29, 1980. A young girl who can start fires is on
