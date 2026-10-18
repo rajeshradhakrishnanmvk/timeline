@@ -1,4 +1,4 @@
-<div class="comic-container {{ comic_side }}">
+<div class="comic-container {{ comic_side }} comic-with-chat">
   <div class="comic-panel comic-content">
     <div class="slideshow-container">
       <div class="mySlides fade">
@@ -95,4 +95,8 @@
       <i class="fa-regular fa-eye" aria-hidden="true"></i>
     </button>
   </div>
+  {% include character-chat.html
+     character="Carrie"
+     endpoint="https://chat.srv1536099.hstgr.cloud/api/carrie"
+     health_endpoint="https://chat.srv1536099.hstgr.cloud/api/health" %}
 </div>
