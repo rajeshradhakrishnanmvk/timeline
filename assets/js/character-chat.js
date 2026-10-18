@@ -15,6 +15,7 @@
   var CHAT_TIMEOUT_MS = 60000;
   var HISTORY_LIMIT = 8;
   var TEXT_LIMIT = 500;
+  var UNAVAILABLE = "Chat is unavailable right now";
 
   function boot() {
     var panels = document.querySelectorAll("[data-character-chat]");
@@ -45,7 +46,6 @@
     var status = root.querySelector("[data-chat-status]");
     var announce = root.querySelector("[data-chat-announce]");
     var thinking = root.querySelector("[data-chat-thinking]");
-    var thinkingLabel = root.querySelector("[data-chat-thinking-label]");
     var countEl = root.querySelector("[data-chat-count]");
     var emptyHint = root.querySelector("[data-chat-empty]");
     if (!toggle || !panel || !form || !input || !sendBtn || !log || !status || !announce) {
@@ -56,13 +56,13 @@
 
     var history = [];
     var streaming = false;
+    var healthState = "unknown";
     var momentMessage = character + " needs a moment, try again shortly";
     var busyMessage = character + " is talking to someone else, try again in a few seconds";
     var badMessage = character + " couldn't read that. Try a shorter note.";
     var genericMessage = "Something went wrong talking to " + character + ". Please try again.";
     var interruptedMessage = "That reply was cut off. Please try again.";
     var emptyReplyMessage = character + " didn't say anything. Please try again.";
-    var thinkingMessage = character + " is thinking\u2026";
 
     function setStatus(message, isError) {
       status.textContent = message || "";
@@ -70,12 +70,8 @@
     }
 
     function showThinking() {
-      if (!thinking) {
-        return;
-      }
-      thinking.hidden = false;
-      if (thinkingLabel) {
-        thinkingLabel.textContent = thinkingMessage;
+      if (thinking) {
+        thinking.hidden = false;
       }
     }
 
@@ -87,7 +83,7 @@
 
     function updateSend() {
       var blank = input.value.replace(/\s/g, "") === "";
-      sendBtn.disabled = streaming || blank;
+      sendBtn.disabled = streaming || healthState !== "ok" || blank;
       if (countEl) {
         countEl.textContent = String(input.value.length) + "/" + String(TEXT_LIMIT);
       }
@@ -120,27 +116,58 @@
       body.parentNode.parentNode.removeChild(body.parentNode);
     }
 
-    function outgoingMessages() {
-      var recent = history.slice(-HISTORY_LIMIT);
-      var payload = [];
+    /* Last 8 turns, always starting on a user and then alternating.
+       A cut that would begin on an assistant drops that turn too. */
+    function outgoingMessages(extraUser) {
+      var source = history.slice();
+      var cleaned = [];
       var i;
-      for (i = 0; i < recent.length; i++) {
-        var msg = recent[i];
+      if (extraUser) {
+        source.push({ role: "user", content: extraUser });
+      }
+      for (i = 0; i < source.length; i++) {
+        var msg = source[i];
+        var content;
         if (!msg || (msg.role !== "user" && msg.role !== "assistant")) {
           continue;
         }
-        payload.push({
-          role: msg.role,
-          content: String(msg.content || "").slice(0, TEXT_LIMIT)
-        });
+        content = String(msg.content || "").slice(0, TEXT_LIMIT);
+        if (!content) {
+          continue;
+        }
+        if (!cleaned.length) {
+          if (msg.role !== "user") {
+            continue;
+          }
+          cleaned.push({ role: "user", content: content });
+          continue;
+        }
+        if (cleaned[cleaned.length - 1].role === msg.role) {
+          cleaned[cleaned.length - 1] = { role: msg.role, content: content };
+          continue;
+        }
+        cleaned.push({ role: msg.role, content: content });
       }
-      return payload;
+      while (cleaned.length > HISTORY_LIMIT) {
+        cleaned.shift();
+        if (cleaned.length && cleaned[0].role === "assistant") {
+          cleaned.shift();
+        }
+      }
+      return cleaned;
     }
 
     function checkHealth() {
       var timedOut = false;
-      var controller = new AbortController();
-      var timer = setTimeout(function () {
+      var controller;
+      var timer;
+      if (healthState !== "unknown") {
+        return;
+      }
+      healthState = "checking";
+      updateSend();
+      controller = new AbortController();
+      timer = setTimeout(function () {
         timedOut = true;
         controller.abort();
       }, HEALTH_TIMEOUT_MS);
@@ -166,19 +193,24 @@
         clearTimeout(timer);
         return false;
       }).then(function (ok) {
-        if (ok) {
-          root.hidden = false;
+        healthState = ok ? "ok" : "down";
+        if (!ok) {
+          setStatus(UNAVAILABLE, true);
         }
+        updateSend();
       }, function () {
-        /* Health failures stay hidden and quiet. */
+        healthState = "down";
+        setStatus(UNAVAILABLE, true);
+        updateSend();
       });
     }
 
-      function sendMessage() {
+    function sendMessage(pendingUser) {
       var assistantBody = null;
       var assistantText = "";
       var streamFailed = false;
       var settled = false;
+      var committed = false;
       var controller = new AbortController();
       var timer = setTimeout(function () {
         controller.abort();
@@ -203,10 +235,25 @@
         return true;
       }
 
+      function commitPendingUser() {
+        var last;
+        if (committed || !pendingUser) {
+          return;
+        }
+        last = history.length ? history[history.length - 1] : null;
+        if (last && last.role === "user") {
+          committed = true;
+          return;
+        }
+        history.push({ role: "user", content: pendingUser });
+        committed = true;
+      }
+
       function keepPartial() {
         var textKept = assistantText.replace(/\s+$/g, "");
         if (textKept && assistantBody) {
           assistantBody.textContent = textKept;
+          commitPendingUser();
           history.push({ role: "assistant", content: textKept });
           announce.textContent = character + " said: " + textKept;
           log.scrollTop = log.scrollHeight;
@@ -221,16 +268,9 @@
         if (!settle()) {
           return;
         }
-        var textKept = assistantText.replace(/\s+$/g, "");
-        if (textKept && assistantBody) {
-          assistantBody.textContent = textKept;
-          history.push({ role: "assistant", content: textKept });
-          announce.textContent = character + " said: " + textKept;
-          log.scrollTop = log.scrollHeight;
-          return;
+        if (!keepPartial()) {
+          setStatus(emptyReplyMessage, false);
         }
-        removeTurn(assistantBody);
-        setStatus(emptyReplyMessage, false);
       }
 
       function finishInterrupted() {
@@ -279,17 +319,21 @@
 
       function processLine(line) {
         var trimmed = line.replace(/^\s+|\s+$/g, "");
+        var payload;
+        var json;
+        var choices;
+        var delta;
+        var piece;
         if (!trimmed || trimmed.charAt(0) === ":") {
           return false;
         }
         if (trimmed.indexOf("data:") !== 0) {
           return false;
         }
-        var payload = trimmed.slice(5).replace(/^\s+|\s+$/g, "");
+        payload = trimmed.slice(5).replace(/^\s+|\s+$/g, "");
         if (payload === "[DONE]") {
           return true;
         }
-        var json;
         try {
           json = JSON.parse(payload);
         } catch (err) {
@@ -306,12 +350,12 @@
         if (streamFailed) {
           return false;
         }
-        var choices = json.choices;
-        var delta = choices && choices[0] && choices[0].delta;
+        choices = json.choices;
+        delta = choices && choices[0] && choices[0].delta;
         if (!delta) {
           return false;
         }
-        var piece = delta.content;
+        piece = delta.content;
         /* The first chunk is often {"role":"assistant","content":""}. Ignore it.
            A normal length cap ends with "..." and is ordinary text, not an error. */
         if (typeof piece !== "string" || piece === "") {
@@ -322,13 +366,16 @@
       }
 
       function readSse(response) {
+        var reader;
+        var decoder;
+        var buffer;
         if (!response.body || !response.body.getReader) {
           finishHttp(0);
           return Promise.resolve();
         }
-        var reader = response.body.getReader();
-        var decoder = new TextDecoder();
-        var buffer = "";
+        reader = response.body.getReader();
+        decoder = new TextDecoder();
+        buffer = "";
 
         function pump() {
           return reader.read().then(function (result) {
@@ -394,7 +441,7 @@
           "Accept": "text/event-stream",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ messages: outgoingMessages() }),
+        body: JSON.stringify({ messages: outgoingMessages(pendingUser) }),
         signal: controller.signal
       }).then(function (response) {
         if (!response.ok) {
@@ -409,16 +456,38 @@
       });
     }
 
-    toggle.addEventListener("click", function () {
-      var open = toggle.getAttribute("aria-expanded") === "true";
-      if (open) {
-        panel.hidden = true;
-        toggle.setAttribute("aria-expanded", "false");
-        return;
-      }
+    function closePanel() {
+      panel.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+    }
+
+    function openPanel() {
       panel.hidden = false;
       toggle.setAttribute("aria-expanded", "true");
+      if (healthState === "unknown") {
+        checkHealth();
+      } else if (healthState === "down") {
+        setStatus(UNAVAILABLE, true);
+      }
       input.focus();
+    }
+
+    toggle.addEventListener("click", function () {
+      if (toggle.getAttribute("aria-expanded") === "true") {
+        closePanel();
+        return;
+      }
+      openPanel();
+    });
+
+    root.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape" || toggle.getAttribute("aria-expanded") !== "true") {
+        return;
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      closePanel();
+      toggle.focus();
     });
 
     input.addEventListener("input", updateSend);
@@ -438,27 +507,26 @@
     });
 
     form.addEventListener("submit", function (event) {
+      var text;
       event.preventDefault();
-      if (streaming) {
+      if (streaming || healthState !== "ok") {
+        if (healthState === "down") {
+          setStatus(UNAVAILABLE, true);
+        }
         return;
       }
-      var text = input.value.slice(0, TEXT_LIMIT).replace(/^\s+|\s+$/g, "");
+      text = input.value.slice(0, TEXT_LIMIT).replace(/^\s+|\s+$/g, "");
       if (!text) {
         updateSend();
         return;
       }
       input.value = "";
-      history.push({ role: "user", content: text });
       appendTurn("user", text);
       updateSend();
-      sendMessage();
+      sendMessage(text);
     });
 
-    if (thinkingLabel) {
-      thinkingLabel.textContent = thinkingMessage;
-    }
     updateSend();
-    checkHealth();
   }
 
   window.CharacterChat = { init: boot, _booted: true };

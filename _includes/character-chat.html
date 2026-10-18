@@ -1,13 +1,10 @@
 {% comment %}
   Reusable fan-chat panel. Pass character, endpoint, and health_endpoint.
-  The panel stays hidden until health_endpoint returns {"ok": true}.
-  Only Carrie is wired up. Another strip can include this with its own endpoint.
+  The collapsed toggle is always on the page. Health is checked the first time
+  it is opened. Only Carrie is wired up.
 {% endcomment %}
 {% assign chat_slug = include.character | downcase | replace: " ", "-" | replace: "'", "" %}
-{% unless character_chat_assets_loaded %}
-<link rel="stylesheet" href="{{ '/assets/css/character-chat.css' | relative_url }}">
-{% endunless %}
-<section class="character-chat" data-character-chat hidden
+<section class="character-chat" data-character-chat
   data-character="{{ include.character | escape }}"
   data-endpoint="{{ include.endpoint | escape }}"
   data-health-endpoint="{{ include.health_endpoint | escape }}"
