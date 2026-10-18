@@ -1,0 +1,51 @@
+{% comment %}
+  Reusable fan-chat panel. Pass character, endpoint, and health_endpoint.
+  The panel stays hidden until health_endpoint returns {"ok": true}.
+  Only Carrie is wired up. Another strip can include this with its own endpoint.
+{% endcomment %}
+{% assign chat_slug = include.character | downcase | replace: " ", "-" | replace: "'", "" %}
+{% unless character_chat_assets_loaded %}
+<link rel="stylesheet" href="{{ '/assets/css/character-chat.css' | relative_url }}">
+{% endunless %}
+<section class="character-chat" data-character-chat hidden
+  data-character="{{ include.character | escape }}"
+  data-endpoint="{{ include.endpoint | escape }}"
+  data-health-endpoint="{{ include.health_endpoint | escape }}"
+  aria-labelledby="character-chat-heading-{{ chat_slug }}">
+  <div class="character-chat-card">
+    <h3 class="character-chat-heading">
+      <button type="button" class="character-chat-toggle" data-chat-toggle
+        id="character-chat-heading-{{ chat_slug }}"
+        aria-expanded="false"
+        aria-controls="character-chat-panel-{{ chat_slug }}">
+        <span>Chat with {{ include.character | escape }}</span>
+        <span class="character-chat-chevron" aria-hidden="true"></span>
+      </button>
+    </h3>
+    <p class="character-chat-disclaimer">Fan-made AI character — not affiliated with Stephen King or his publishers. Replies may be inaccurate.</p>
+    <div id="character-chat-panel-{{ chat_slug }}" class="character-chat-panel" data-chat-panel hidden>
+      <div class="character-chat-log" data-chat-log tabindex="0" aria-label="Conversation with {{ include.character | escape }}"></div>
+      <p class="character-chat-empty" data-chat-empty>Ask a question. Replies take a few seconds.</p>
+      <p class="character-chat-thinking" data-chat-thinking hidden aria-live="polite">
+        <span class="character-chat-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span data-chat-thinking-label>{{ include.character | escape }} is thinking…</span>
+      </p>
+      <p class="character-chat-status" data-chat-status role="status" aria-live="polite"></p>
+      <p class="character-chat-announce" data-chat-announce aria-live="polite" aria-atomic="true"></p>
+      <form class="character-chat-form" data-chat-form action="#" method="post">
+        <label class="character-chat-label" for="character-chat-input-{{ chat_slug }}">Message, up to 500 characters</label>
+        <textarea class="character-chat-input" data-chat-input id="character-chat-input-{{ chat_slug }}"
+          maxlength="500" rows="3" aria-describedby="character-chat-hint-{{ chat_slug }}"></textarea>
+        <p class="character-chat-hint" id="character-chat-hint-{{ chat_slug }}">Enter to send. Shift+Enter for a new line.</p>
+        <div class="character-chat-actions">
+          <span class="character-chat-count" data-chat-count aria-hidden="true">0/500</span>
+          <button type="submit" class="character-chat-send" data-chat-send disabled>Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% unless character_chat_assets_loaded %}
+<script src="{{ '/assets/js/character-chat.js' | relative_url }}" defer></script>
+{% assign character_chat_assets_loaded = true %}
+{% endunless %}
