@@ -1,0 +1,36 @@
+/* Roadwork strip styles (scoped to .rw-strip).
+   Patrick Hand and Bangers load from comic-fonts.css (font-display: swap).
+   This file does not add @font-face rules. */
+
+.rw-strip{--rw-ink:#111;font-family:'Patrick Hand','Comic Neue','Comic Sans MS',cursive;color:var(--rw-ink);max-width:min(1240px,100%);margin:0 auto}
+.rw-strip *{box-sizing:border-box}
+.rw-head{text-align:center;margin:0 0 12px;padding:0 2rem}
+.rw-head h1{font-family:Bangers,Impact,sans-serif;font-weight:400;letter-spacing:.06em;font-size:clamp(2rem,7vw,3.2rem);margin:0;line-height:1}
+.rw-head p{margin:.2rem 0 0;font-size:clamp(.95rem,3.4vw,1.15rem)}
+.rw-slideshow{max-width:100%;min-width:0}
+.rw-slideshow .slideshow-container{max-width:min(720px,100%);margin:0 auto;overflow:hidden;touch-action:pan-y}
+.rw-slideshow .mySlides{max-width:100%;min-width:0}
+.rw-slideshow .numbertext{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em;padding:0 8px 4px;color:#111}
+/* Drawn chevrons. system-ui is only a fallback; the arrows are SVG. */
+.rw-slideshow button.prev,
+.rw-slideshow button.next{font-family:system-ui,sans-serif;color:#111;background:#fff;border:2px solid #111;border-radius:4px;z-index:2;padding:0;line-height:0;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+.rw-slideshow button.prev:hover,
+.rw-slideshow button.next:hover{background:#111;color:#fff}
+.rw-slideshow .rw-arrow{display:block;width:14px;height:14px;overflow:visible}
+.rw-slideshow button.prev{left:6px}
+.rw-slideshow button.next{right:6px}
+@media (max-width:480px){
+  .rw-slideshow button.prev,
+  .rw-slideshow button.next{top:72%;margin-top:0}
+}
+.rw-slideshow .slide-dots{text-align:center;margin:10px 0 0;white-space:nowrap}
+.rw-panel{margin:0;background:#fff;border:3px solid var(--rw-ink);box-shadow:0 6px 6px -6px #000;display:flex;flex-direction:column;min-width:0;max-width:100%}
+.rw-cap{margin:0;padding:6px 10px;background:#fff6c7;border-bottom:3px solid var(--rw-ink);font-size:1.02rem;line-height:1.25;min-height:calc(2.5em + 15px);display:flex;align-items:center;gap:8px}
+@media (max-width:620px){.rw-cap{min-height:0}}
+.rw-num{flex:0 0 auto;font-family:Bangers,Impact,sans-serif;background:var(--rw-ink);color:#fff;border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;letter-spacing:0}
+.rw-art{display:block;width:100%;height:auto;max-width:100%}
+.rw-credit{margin:14px 0 0;font-size:.9rem;line-height:1.35;color:#333;text-align:center}
+.rw-credit a{color:inherit}
+
+[data-comic-book="roadwork"]{min-width:0;max-width:100%;overflow-x:hidden}
+.rw-head h1,.rw-head p,.rw-cap,.rw-credit{overflow-wrap:anywhere}
