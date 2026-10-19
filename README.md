@@ -16,7 +16,7 @@ Edit [`_data/books.yml`](_data/books.yml). Each entry needs:
 | `title` | Book title. Quote it if it contains an apostrophe |
 | `source` | A Wikipedia or [stephenking.com](https://stephenking.com/works/) page for that book |
 | `description` | A short, spoiler-light summary in your own words |
-| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `the-dead-zone`, `firestarter`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
+| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `the-dead-zone`, `firestarter`, `roadwork`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
 
 Left and right placement alternates down the list after the sort. Do not set a side by hand.
 
@@ -52,6 +52,8 @@ The 'Salem's Lot strip is fan-made, non-commercial, and based on the public prem
 The Shining strip is fan-made, non-commercial, and based on the public publisher premise of the 1977 novel: Jack Torrance takes the off-season caretaker job at the Overlook Hotel, hoping for a fresh start, time to write, and time with his family. Winter closes in, the remote hotel begins to feel sinister, and only five-year-old Danny notices forces gathering. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Doubleday.
 
 The Dead Zone strip is fan-made, non-commercial, and based on the public publisher premise of the 1979 novel: schoolteacher Johnny Smith wakes after nearly five years in a coma following a car accident and finds that a touch shows him someone's past or future. People call the sight a gift and bring him their problems; he feels cursed. His fiancée has married someone else. A handshake with an ambitious politician shows him something disturbing, and he has not decided what to do. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Viking Press.
+
+The Roadwork strip is fan-made, non-commercial, and based on the public publisher premise of the 1981 Richard Bachman novel: Barton George Dawes's house and the laundry plant where he works stand in the path of a new highway extension. He refuses to step aside. The argument drives his wife and his friends away while he faces the bureaucracy that wants both places torn down. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or New American Library.
 
 The Firestarter strip is fan-made, non-commercial, and based on the public publisher premise of the 1980 novel: at college, Andy and Vicky volunteer for a study run by a veiled agency, the Department of Scientific Intelligence, also called The Shop. The dose is called Lot Six. They later marry and have a daughter, Charlie, whom the agency never planned on. Charlie can start fires. The agency wants to capture her and use that fire, and she is on the run with her father. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Viking Press.
 
