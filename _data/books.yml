@@ -1,7 +1,7 @@
 # Stephen King novels, first-publication order.
 # The timeline sorts on `date` and alternates sides automatically.
 # `year` is the heading year. `source` is a Wikipedia or stephenking.com page.
-# Optional `comic` attaches a strip: carrie, salems-lot, shining, the-dead-zone, firestarter, roadwork, never-flinch, the-stand, or the-long-walk.
+# Optional `comic` attaches a strip: carrie, salems-lot, shining, the-dead-zone, firestarter, roadwork, cujo, never-flinch, the-stand, or the-long-walk.
 # Descriptions are original and spoiler-light. Do not paste text from other sites.
 
 - id: carrie
@@ -103,10 +103,12 @@
   year: 1981
   date: 1981-09-08
   title: Cujo
+  comic: cujo
   source: "https://en.wikipedia.org/wiki/Cujo"
   description: >-
-    Published on September 8, 1981. A St. Bernard bitten by a rabid bat
-    becomes a deadly trap for a mother and son stranded at a remote garage.
+    Published by Viking Press on September 8, 1981. A St. Bernard bitten by a
+    rabid bat becomes a deadly trap for a mother and son stranded at a remote
+    garage.
 
 - id: therunningman
   year: 1982
