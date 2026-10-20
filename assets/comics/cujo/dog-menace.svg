@@ -2,8 +2,7 @@
 <path fill="none" stroke="#8a5a32" stroke-width="8" d="M92 180c2 20 16 34 28 22"/>
 
 <ellipse cx="156" cy="190" rx="98" ry="44" fill="#f7f4ee" stroke-width="3"/>
-<ellipse cx="150" cy="164" rx="82" ry="28" fill="#c4894a" stroke-width="3"/>
-<ellipse cx="148" cy="156" rx="48" ry="13" fill="#8a5a32" stroke-width="2.5"/>
+<path d="M96 186c-2-24 22-44 48-46 22-4 36 2 50 0 20-4 40 10 46 28 6 18-8 32-26 34-22 8-40-2-62 4-18 4-54 0-56-20z" fill="#c4894a" stroke-width="2.5"/>
 <ellipse cx="104" cy="188" rx="22" ry="15" fill="#a86b32" stroke-width="3"/>
 <ellipse cx="230" cy="200" rx="42" ry="40" fill="#f7f4ee" stroke-width="3"/>
 <rect x="92" y="214" width="28" height="50" rx="12" fill="#f7f4ee" stroke-width="3"/>
