@@ -16,7 +16,7 @@ Edit [`_data/books.yml`](_data/books.yml). Each entry needs:
 | `title` | Book title. Quote it if it contains an apostrophe |
 | `source` | A Wikipedia or [stephenking.com](https://stephenking.com/works/) page for that book |
 | `description` | A short, spoiler-light summary in your own words |
-| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `the-dead-zone`, `firestarter`, `roadwork`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
+| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `the-dead-zone`, `firestarter`, `roadwork`, `the-running-man`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
 
 Left and right placement alternates down the list after the sort. Do not set a side by hand.
 
@@ -57,7 +57,9 @@ The Roadwork strip is fan-made, non-commercial, and based on the public publishe
 
 The Firestarter strip is fan-made, non-commercial, and based on the public publisher premise of the 1980 novel: at college, Andy and Vicky volunteer for a study run by a veiled agency, the Department of Scientific Intelligence, also called The Shop. The dose is called Lot Six. They later marry and have a daughter, Charlie, whom the agency never planned on. Charlie can start fires. The agency wants to capture her and use that fire, and she is on the run with her father. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Viking Press.
 
+The Running Man strip is fan-made, non-commercial, and based on the public premise of the 1982 Richard Bachman novel (Signet, May 1982): in a bleak near-future, a desperate, broke father whose young daughter is sick signs up for a deadly television game show, The Running Man. He must stay alive while the public is paid to report him and hunters track him down. The strip does not follow the plot past that premise. Dialogue is original. It is unofficial fan work, not affiliated with or endorsed by Stephen King or his publishers.
+
 - **Comicgen** by Gramener ([gramener.com/comicgen](https://gramener.com/comicgen/), [github.com/gramener/comicgen](https://github.com/gramener/comicgen)); code under MIT.
-- **Character art** uses Comicgen CC0 character assets, including Sophie.
+- **Character art** uses Comicgen CC0 character assets, including Sophie. The Running Man strip uses Ethan by Devarani B, and Dee, Dey, Priya, and Ringo by Ramya Mylavarapu (CC0).
 - **Noto emoji** (envelope) © Google Inc., Apache License 2.0.
 - **Fonts:** Patrick Hand and Bangers, SIL Open Font License 1.1.
