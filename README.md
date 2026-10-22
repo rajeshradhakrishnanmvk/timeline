@@ -16,7 +16,7 @@ Edit [`_data/books.yml`](_data/books.yml). Each entry needs:
 | `title` | Book title. Quote it if it contains an apostrophe |
 | `source` | A Wikipedia or [stephenking.com](https://stephenking.com/works/) page for that book |
 | `description` | A short, spoiler-light summary in your own words |
-| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `the-dead-zone`, `firestarter`, `roadwork`, `cujo`, `the-gunslinger`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
+| `comic` | Optional. `carrie`, `salems-lot`, `shining`, `the-dead-zone`, `firestarter`, `roadwork`, `cujo`, `the-running-man`, `the-gunslinger`, `never-flinch`, `the-stand`, or `the-long-walk` attaches an existing comic panel |
 
 Left and right placement alternates down the list after the sort. Do not set a side by hand.
 
@@ -59,9 +59,11 @@ The Firestarter strip is fan-made, non-commercial, and based on the public publi
 
 The Cujo strip is fan-made, non-commercial, and based on the public publisher premise of the novel (Viking Press, September 8, 1981): in a hot Castle Rock summer, Donna Trenton and her four-year-old son Tad are already strained while Vic is away on business. Cujo, a gentle St. Bernard, is bitten by a bat and changes. Donna and Tad drive their failing Pinto to a remote farm garage, and it breaks down there, leaving them stuck in the car as the dog appears. The strip does not follow the plot past that premise. It is not affiliated with or endorsed by Stephen King or Viking Press.
 
+The Running Man strip is fan-made, non-commercial, and based on the public premise of the 1982 Richard Bachman novel (Signet, May 1982): in a bleak near-future, a desperate, broke father whose baby daughter is sick signs up for a deadly television game show, The Running Man. He must stay alive while the public is paid to report him and hunters track him down. The strip does not follow the plot past that premise. Dialogue is original. It is unofficial fan work, not affiliated with or endorsed by Stephen King or his publishers.
+
 The Gunslinger strip is fan-made, non-commercial, and based on the public premise of *The Dark Tower: The Gunslinger* (Donald M. Grant, June 1982): Roland, the last gunslinger, a lone adult, follows the man in black across a vast desert in a worn-out world, toward the Dark Tower. The strip does not follow the plot past that opening setup. It is unofficial and unaffiliated, and it is not endorsed by Stephen King or his publishers. Roland is built on Comicgen's Ethan, with an original hat, neckerchief, vest, gun belt, and sandalwood-grip revolvers. The man in black and the backgrounds are original drawings in that flat style. Comicgen has no western gunslinger.
 
 - **Comicgen** by Gramener ([gramener.com/comicgen](https://gramener.com/comicgen/), [github.com/gramener/comicgen](https://github.com/gramener/comicgen)); code under MIT.
-- **Character art** uses Comicgen CC0 character assets, including Sophie. The Gunslinger's Roland is Comicgen's Ethan by Devarani B (CC0), dressed with original western gear. The man in black is an original drawing in that flat style.
+- **Character art** uses Comicgen CC0 character assets, including Sophie. The Running Man strip uses Ethan by Devarani B; Dee, Dey, and Ringo by Ramya Mylavarapu; and Bill by Renel McCullum (CC0). Sheila is Dee. The producer is Bill. The baby is original fan art in that flat style. The Gunslinger's Roland is Comicgen's Ethan by Devarani B (CC0), dressed with original western gear. The man in black is an original drawing in that flat style.
 - **Noto emoji** (envelope) © Google Inc., Apache License 2.0.
 - **Fonts:** Patrick Hand and Bangers, SIL Open Font License 1.1.
