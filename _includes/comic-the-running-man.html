@@ -1,0 +1,15 @@
+<!-- _includes/comic-the-running-man.html: timeline teaser for The Running Man.
+     Panel 1 is shown inline and the eye button opens the modal. The slideshow
+     markup copies Carrie: one scene at a time, not a grid. -->
+<div class="comic-container {{ comic_side | default: 'comic-right' }}">
+  <div class="comic-panel comic-content">
+    <div class="comic-caption-top">The Running Man: the premise in 6 panels</div>
+    <img src="{{ '/assets/comics/the-running-man/panel-1.png' | relative_url }}"
+         width="300" height="200" style="width:100%;height:auto;object-fit:cover"
+         alt="A father and mother with their feverish baby in a poor apartment">
+    <button type="button" class="btn" data-open-comic="the-running-man"
+            title="Comic book" aria-label="Open The Running Man comic strip">
+      <i class="fa-regular fa-eye" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
