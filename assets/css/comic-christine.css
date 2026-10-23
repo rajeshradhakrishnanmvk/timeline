@@ -1,0 +1,36 @@
+/* Christine strip styles (scoped to .cn-strip).
+   Patrick Hand and Bangers load from comic-fonts.css (font-display: swap).
+   This file does not add @font-face rules. */
+
+.cn-strip{--cn-ink:#111;font-family:'Patrick Hand','Comic Neue','Comic Sans MS',cursive;color:var(--cn-ink);max-width:min(1240px,100%);margin:0 auto}
+.cn-strip *{box-sizing:border-box}
+.cn-head{text-align:center;margin:0 0 12px;padding:0 2rem}
+.cn-head h1{font-family:Bangers,Impact,sans-serif;font-weight:400;letter-spacing:.04em;font-size:clamp(1.7rem,7vw,3.2rem);margin:0;line-height:1}
+.cn-head p{margin:.2rem 0 0;font-size:clamp(.95rem,3.4vw,1.15rem)}
+.cn-slideshow{max-width:100%;min-width:0}
+.cn-slideshow .slideshow-container{max-width:min(720px,100%);margin:0 auto;overflow:hidden;touch-action:pan-y}
+.cn-slideshow .mySlides{max-width:100%;min-width:0}
+.cn-slideshow .numbertext{font-family:Bangers,Impact,sans-serif;letter-spacing:.04em;padding:0 8px 4px;color:#111}
+/* Drawn chevrons. system-ui is only a fallback; the arrows are SVG. */
+.cn-slideshow button.prev,
+.cn-slideshow button.next{font-family:system-ui,sans-serif;color:#111;background:#fff;border:2px solid #111;border-radius:4px;z-index:2;padding:0;line-height:0;width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center}
+.cn-slideshow button.prev:hover,
+.cn-slideshow button.next:hover{background:#111;color:#fff}
+.cn-slideshow .cn-arrow{display:block;width:14px;height:14px;overflow:visible}
+.cn-slideshow button.prev{left:6px}
+.cn-slideshow button.next{right:6px}
+@media (max-width:480px){
+  .cn-slideshow button.prev,
+  .cn-slideshow button.next{top:72%;margin-top:0}
+}
+.cn-slideshow .slide-dots{text-align:center;margin:10px 0 0;white-space:nowrap}
+.cn-panel{margin:0;background:#fff;border:3px solid var(--cn-ink);box-shadow:0 6px 6px -6px #000;display:flex;flex-direction:column;min-width:0;max-width:100%}
+.cn-cap{margin:0;padding:6px 10px;background:#fff6c7;border-bottom:3px solid var(--cn-ink);font-size:1.02rem;line-height:1.25;min-height:calc(2.5em + 15px);display:flex;align-items:center;gap:8px}
+@media (max-width:620px){.cn-cap{min-height:0}}
+.cn-num{flex:0 0 auto;font-family:Bangers,Impact,sans-serif;background:var(--cn-ink);color:#fff;border-radius:50%;width:1.6em;height:1.6em;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;letter-spacing:0}
+.cn-art{display:block;width:100%;height:auto;max-width:100%}
+.cn-credit{margin:14px 0 0;font-size:.9rem;line-height:1.35;color:#333;text-align:center}
+.cn-credit a{color:inherit}
+
+[data-comic-book="christine"]{min-width:0;max-width:100%;overflow-x:hidden}
+.cn-head h1,.cn-head p,.cn-cap,.cn-credit{overflow-wrap:anywhere}
