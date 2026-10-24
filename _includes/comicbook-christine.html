@@ -6,6 +6,16 @@
 <header class="cn-head">
 <h1>CHRISTINE</h1>
 <p>Stephen King · Viking Press, April 29, 1983 · spoiler-free premise strip</p>
+<div class="cn-sound">
+  <audio id="cn-soundtrack" class="cn-loop" loop preload="none">
+    <source src="{{ '/assets/audio/christine/christine_loop.ogg' | relative_url }}" type="audio/ogg">
+    <source src="{{ '/assets/audio/christine/christine_loop.mp3' | relative_url }}" type="audio/mpeg">
+  </audio>
+  <audio class="cn-sting" preload="none">
+    <source src="{{ '/assets/audio/christine/christine_cliffhanger.mp3' | relative_url }}" type="audio/mpeg">
+  </audio>
+  <button type="button" class="cn-sound-toggle" aria-pressed="false" aria-controls="cn-soundtrack">Soundtrack off</button>
+</div>
 </header>
 <div class="cn-slideshow">
     <div class="slideshow-container" aria-roledescription="slideshow" aria-label="Christine scenes">
@@ -216,5 +226,6 @@
         <button type="button" class="dot" aria-label="Show scene 6"></button>
     </div>
   </div>
-  <p class="cn-credit">Fan-made, unofficial, and unaffiliated. Not endorsed by Stephen King or Viking Press. Dialogue is original. Arnie Cunningham, Leigh Cabot, Roland LeBay, and Dennis Guilder are <a href="https://gramener.com/comicgen/">Gramener Comicgen</a>'s Aavatar (Devarani B and Ramya Mylavarapu, CC0). Arnie's glasses and blemishes, and Dennis's letterman jacket, are original. Christine and the backgrounds are original drawings (Comicgen is MIT; character art is CC0). Fonts: Patrick Hand &amp; Bangers (SIL OFL).</p>
+  <p class="cn-credit">Fan-made, unofficial, and unaffiliated. Not endorsed by Stephen King or Viking Press. Dialogue is original. Arnie Cunningham, Leigh Cabot, Roland LeBay, and Dennis Guilder are <a href="https://gramener.com/comicgen/">Gramener Comicgen</a>'s Aavatar (Devarani B and Ramya Mylavarapu, CC0). Arnie's glasses and blemishes, and Dennis's letterman jacket, are original. Christine and the backgrounds are original drawings (Comicgen is MIT; character art is CC0). The soundtrack is original synthesised music made by Rajesh's Carnatic Guru assistant, with a Panthuvarali flavour. Fonts: Patrick Hand &amp; Bangers (SIL OFL).</p>
 </section>
+<script src="{{ '/assets/js/comic-christine.js' | relative_url }}"></script>
