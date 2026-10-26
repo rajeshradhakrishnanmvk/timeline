@@ -1,7 +1,7 @@
 # Stephen King novels, first-publication order.
 # The timeline sorts on `date` and alternates sides automatically.
 # `year` is the heading year. `source` is a Wikipedia or stephenking.com page.
-# Optional `comic` attaches a strip: carrie, salems-lot, shining, the-dead-zone, firestarter, roadwork, cujo, the-running-man, the-gunslinger, christine, never-flinch, the-stand, or the-long-walk.
+# Optional `comic` attaches a strip: carrie, salems-lot, shining, the-dead-zone, firestarter, roadwork, cujo, the-running-man, the-gunslinger, christine, petsematary, never-flinch, the-stand, or the-long-walk.
 # Descriptions are original and spoiler-light. Do not paste text from other sites.
 
 - id: carrie
@@ -145,6 +145,7 @@
   year: 1983
   date: 1983-11-01
   title: Pet Sematary
+  comic: petsematary
   source: "https://en.wikipedia.org/wiki/Pet_Sematary"
   description: >-
     Published in November 1983. A doctor in rural Maine learns that the
